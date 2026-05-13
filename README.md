@@ -1,8 +1,8 @@
-Decimal, Binary, letters at
-https://vernetit.github.io/speed-memory-compatible-simulator-mobile/index.html
-Figures and colors
-https://vernetit.github.io/speed-memory-compatible-simulator-mobile/ffc.html
-Matrix
-https://vernetit.github.io/speed-memory-compatible-simulator-mobile/matrix.html
+Decimal, Binary, letters at<br>
+  https://vernetit.github.io/speed-memory-compatible-simulator-mobile/index.html<br>
+Figures and colors<br>
+  https://vernetit.github.io/speed-memory-compatible-simulator-mobile/ffc.html
+Matrix<br>
+  https://vernetit.github.io/speed-memory-compatible-simulator-mobile/matrix.html<br><br>
 
 Thanks!
