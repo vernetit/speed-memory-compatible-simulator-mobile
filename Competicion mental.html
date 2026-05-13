@@ -1,0 +1,1519 @@
+<!-- saved from url=(0023)http://localhost:13080/ -->
+<script>
+function alert1(mensaje = "") {
+  return new Promise((resolve) => {
+    // Evita duplicar alerts
+    const viejo = document.getElementById("alert1-overlay");
+    if (viejo) viejo.remove();
+
+    const overlay = document.createElement("div");
+    overlay.id = "alert1-overlay";
+
+    overlay.innerHTML = `
+      <div id="alert1-box" role="alertdialog" aria-modal="true">
+        <div id="alert1-message"></div>
+        <button id="alert1-ok">Aceptar</button>
+      </div>
+    `;
+
+    const style = document.createElement("style");
+    style.id = "alert1-style";
+    style.textContent = `
+      #alert1-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 99999999999999999;
+        background: rgba(0,0,0,0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+      }
+
+      #alert1-box {
+      z-index: 99999999999999999;
+        min-width: 260px;
+        max-width: 85vw;
+        background: #fff;
+        color: #111;
+        border-radius: 6px;
+        box-shadow: 0 8px 35px rgba(0,0,0,0.35);
+        padding: 18px;
+        text-align: center;
+      }
+
+      #alert1-message {
+        white-space: pre-wrap;
+        font-size: 16px;
+        margin-bottom: 18px;
+      }
+
+      #alert1-ok {
+        min-width: 80px;
+        padding: 7px 18px;
+        font-size: 15px;
+        border: 1px solid #888;
+        border-radius: 4px;
+        background: #f3f3f3;
+        color: #111;
+      }
+
+      #alert1-ok:focus {
+        outline: 2px solid #4d90fe;
+        outline-offset: 2px;
+      }
+
+      #alert1-ok:active {
+        background: #ddd;
+      }
+    `;
+
+    document.head.appendChild(style);
+    document.body.appendChild(overlay);
+
+    const msg = overlay.querySelector("#alert1-message");
+    const ok = overlay.querySelector("#alert1-ok");
+
+    msg.textContent = mensaje;
+
+    function cerrar() {
+      overlay.remove();
+
+      // Borra el style solo si no hay otro alert activo
+      const styleActual = document.getElementById("alert1-style");
+      if (styleActual) styleActual.remove();
+
+      document.removeEventListener("keydown", tecla);
+      resolve();
+    }
+
+    function tecla(e) {
+      if (e.key === "Enter" || e.key === "Escape") {
+        e.preventDefault();
+        cerrar();
+      }
+    }
+
+    ok.addEventListener("click", cerrar);
+    document.addEventListener("keydown", tecla);
+
+    setTimeout(() => ok.focus(), 0);
+  });
+}
+</script>
+<script>
+function activarFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen?.().catch(err => {
+      console.log("No se pudo activar fullscreen:", err);
+    });
+  }
+}
+
+document.addEventListener("click", activarFullscreen);
+document.addEventListener("touchstart", activarFullscreen);
+</script>
+
+<script>
+setTimeout(() => {
+return
+  const valor = localStorage.getItem("initMR");
+
+  navigator.clipboard.writeText(valor ?? "")
+    .then(() => {
+      alert1("initMR copiado al portapapeles");
+    })
+    .catch(err => {
+   //   alert("No se pudo copiar: " + err);
+    });
+}, 3000);
+setTimeout(() => {
+numero = Math.random() < 0.5 ? "bin" : "Dec";
+if(numero == "bin"){ 
+alert1("1s  "+numero); 
+setTimeout(function() {
+  numero2 = Math.random() < 0.5 ? "17" : "20";
+alert1("1s dec "+numero2);
+  }, 2 * 60 * 1000);
+}else{
+numero2 = Math.random() < 0.5 ? "17" : "20";
+alert1("1s "+numero+numero2);
+}
+  }, 2000);
+setTimeout(function() {
+numero = Math.random() < 0.5 ? "dec 30" : "bin 58";
+
+  alert1("4s "+numero);
+ if(numero==  "bin 58"){
+  
+  setTimeout(function() {
+  alert1("Dec 28 ");
+  }, 2 * 60 * 1000);
+  
+  }
+}, 3 * 60 * 1000);
+setTimeout(function() {
+numero = Math.random() < 0.5 ? "bin" : "Dec";
+ numero = ["Dec", "Bin", "Letras"][~~(Math.random() * 3)];
+if(numero == "Dec")  numero = Math.random() < 0.5 ? 12 : 9;
+  alert1("eidetic "+numero);
+}, 8 * 60 * 1000);
+setTimeout(function() {
+numero = Math.random() < 0.5 ? "bin" : "Dec";
+
+  alert1("periférica "+numero);
+}, 9 * 60 * 1000);
+setTimeout(function() {
+ // alert("bin1");
+}, 13 * 60 * 1000);
+setTimeout(function() {
+ // alert("eibin");
+}, 13 * 60 * 1000);
+setTimeout(function() {
+  alert1("figuras y colores");
+}, 10* 60 * 1000);
+
+
+
+</script>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="fb:app_id" content="1911200265691021">
+    
+    
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0"> <!--320-->
+    
+    <title>Competicion mental</title>
+
+  <!--<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>-->
+  
+       <script src="Competicion%20mental_archivos/jquery.min.js" type="text/javascript"></script><script>(function(){class RuffleMimeType{constructor(a,b,c){this.type=a,this.description=b,this.suffixes=c}}class RuffleMimeTypeArray{constructor(a){this.__mimetypes=[],this.__named_mimetypes={};for(let b of a)this.install(b)}install(a){let b=this.__mimetypes.length;this.__mimetypes.push(a),this.__named_mimetypes[a.type]=a,this[a.type]=a,this[b]=a}item(a){return this.__mimetypes[a]}namedItem(a){return this.__named_mimetypes[a]}get length(){return this.__mimetypes.length}}class RufflePlugin extends RuffleMimeTypeArray{constructor(a,b,c,d){super(d),this.name=a,this.description=b,this.filename=c}install(a){a.enabledPlugin||(a.enabledPlugin=this),super.install(a)}}class RufflePluginArray{constructor(a){this.__plugins=[],this.__named_plugins={};for(let b of a)this.install(b)}install(a){let b=this.__plugins.length;this.__plugins.push(a),this.__named_plugins[a.name]=a,this[a.name]=a,this[b]=a}item(a){return this.__plugins[a]}namedItem(a){return this.__named_plugins[a]}get length(){return this.__plugins.length}}const FLASH_PLUGIN=new RufflePlugin("Shockwave Flash","Shockwave Flash 32.0 r0","ruffle.js",[new RuffleMimeType("application/futuresplash","Shockwave Flash","spl"),new RuffleMimeType("application/x-shockwave-flash","Shockwave Flash","swf"),new RuffleMimeType("application/x-shockwave-flash2-preview","Shockwave Flash","swf"),new RuffleMimeType("application/vnd.adobe.flash-movie","Shockwave Flash","swf")]);function install_plugin(a){navigator.plugins.install||Object.defineProperty(navigator,"plugins",{value:new RufflePluginArray(navigator.plugins),writable:!1}),navigator.plugins.install(a),0<a.length&&!navigator.mimeTypes.install&&Object.defineProperty(navigator,"mimeTypes",{value:new RuffleMimeTypeArray(navigator.mimeTypes),writable:!1});for(var b=0;b<a.length;b+=1)navigator.mimeTypes.install(a[b])}install_plugin(FLASH_PLUGIN);})();</script><script src="chrome-extension://medccbhjchpffmcidlhhljjegjfnbhja/dist/ruffle.js?uniqueMessageSuffix=32542769654"></script><script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script> 
+    
+   <!-- <script src="js/Chart.js"></script> -->
+    <link rel="shortcut icon" href="http://localhost:13080/favicon.ico">
+
+    <meta name="description" content="Competición mental: estadísticas, ranking, entrenamiento">
+    <meta name="keywords" content="entrenamiento mental, atletismo mental, entrenar tu mente">
+
+    <link rel="stylesheet" href="Competicion%20mental_archivos/estilo.css">
+    <link rel="stylesheet" id="theme" type="text/css" href="Competicion%20mental_archivos/jquery.msgbox.css">
+
+    <script type="text/javascript">window.preventGo=0;</script>
+
+  
+<script type="text/javascript">
+
+// Guarda el tiempo de inicio cuando se carga la página
+const tiempoInicio = Date.now();
+
+// Función para calcular y mostrar el tiempo transcurrido
+function mostrarTiempoTranscurrido() {
+    const tiempoActual = Date.now();
+    const tiempoPasado = (tiempoActual - tiempoInicio) / 1000; // Convertir a segundos
+
+    const minutos = Math.floor(tiempoPasado / 60);
+    const segundos = Math.floor(tiempoPasado % 60);
+
+    alert(`Tiempo transcurrido: ${minutos} minutos y ${segundos} segundos`);
+}
+
+// Puedes llamar a la función cuando quieras para ver el tiempo transcurrido
+
+
+  bTest=0;
+  color_1={}
+  color_1["0"]="rgb(0, 0, 0)";
+  color_1["1"]="rgb(151, 75, 1)";
+  color_1["2"]="rgb(244, 1, 2)";
+  color_1["3"]="rgb(246, 140, 85)";
+  color_1["4"]="rgb(250, 242, 0)";
+  color_1["5"]="rgb(72, 255, 0)";
+  color_1["6"]="rgb(51, 0, 255)";
+  color_1["7"]="rgb(128, 0, 128)";
+  color_1["8"]="rgb(128, 128, 128)";
+  color_1["9"]="rgb(255, 255, 255)";
+
+/*
+var abc1  =  {
+'a' : 'rgb(0,0,180)','A' : 'rgb(0,0,180)','á' : 'rgb(0,0,180)','Á' : 'rgb(0,0,180)','b' : 'rgb(175,13,102)','B' : 'rgb(175,13,102)','c' : 'rgb(146,248,70)','C' : 'rgb(146,248,70)','d' : 'rgb(255,200,47)','D' : 'rgb(255,200,47)','e' : 'rgb(255,118,0)','E' : 'rgb(255,118,0)','é' : 'rgb(255,118,0)','É' : 'rgb(255,118,0)','f' : 'rgb(255,152,213)','F' : 'rgb(255,152,213)','g' : 'rgb(235,235,222)','G' : 'rgb(235,235,222)','h' : 'rgb(100,100,100)','H' : 'rgb(100,100,100)','i' : 'rgb(255,255,0)','I' : 'rgb(255,255,0)','í' : 'rgb(255,255,0)','Í' : 'rgb(255,255,0)','j' : 'rgb(255,255,150)','J' : 'rgb(255,255,150)','k' : 'rgb(55,19,112) ','K' : 'rgb(55,19,112) ','l' : 'rgb(202,62,94)','L' : 'rgb(202,62,94)','m' : 'rgb(205,145,63)','M' : 'rgb(205,145,63)','n' : 'rgb(12,75,100)','N' : 'rgb(12,75,100)','ñ' : 'rgb(12,75,100)','ñ' : 'rgb(12,75,100)','o' : 'rgb(255,0,0)','O' : 'rgb(255,0,0)','ó' : 'rgb(255,0,0)','Ó' : 'rgb(255,0,0)','p' : 'rgb(175,155,50)','P' : 'rgb(175,155,50)','q' : 'rgb(185,185,185)','Q' : 'rgb(185,185,185)','r' : 'rgb(37,70,25)','R' : 'rgb(37,70,25)','s' : 'rgb(121,33,135)','S' : 'rgb(121,33,135)','t' : 'rgb(83,140,208)','T' : 'rgb(83,140,208)','u' : 'rgb(0,154,37)','U' : 'rgb(0,154,37)','ú' : 'rgb(0,154,37)','Ú' : 'rgb(0,154,37)','v' : 'rgb(178,220,205)','V' : 'rgb(178,220,205)','w' : 'rgb(169,34,0)','W' : 'rgb(169,34,0)','x' : 'rgb(0,0,74)','X' : 'rgb(0,0,74)','y' : 'rgb(175,200,74)','Y' : 'rgb(175,200,74)','z' : 'rgb(63,25,12)','Z' : 'rgb(63,25,12)','0' : 'rgb(0,0,180)','0' : 'rgb(0,0,180)','1' : 'rgb(175,13,102)','1' : 'rgb(175,13,102)','2' : 'rgb(146,248,70)','2' : 'rgb(146,248,70)','3' : 'rgb(255,200,47)','3' : 'rgb(255,200,47)','4' : 'rgb(255,118,0)','4' : 'rgb(255,118,0)','5' : 'rgb(255,152,213)','5' : 'rgb(255,152,213)','6' : 'rgb(235,235,222)','6' : 'rgb(235,235,222)','7' : 'rgb(100,100,100)','7' : 'rgb(100,100,100)','8' : 'rgb(255,255,0)','8' : 'rgb(255,255,0)','9' : 'rgb(255,255,150)','9' : 'rgb(255,255,150)'   
+};
+
+*/
+  color_2={}
+  color_2["0"]="rgb(0,0,180)";
+  color_2["1"]="rgb(175,13,102)";
+  color_2["2"]="rgb(146,248,70)";
+  color_2["3"]="rgb(255,200,47)";
+  color_2["4"]="rgb(255,118,0)";
+  color_2["5"]="rgb(255,152,213)";
+  color_2["6"]="rgb(235,235,222)";
+  color_2["7"]="rgb(100,100,100)";
+  color_2["8"]="rgb(255,255,0)";
+  color_2["9"]="rgb(255,255,150)";
+ /* 
+  version=localStorage.getItem("version")
+  console.log(version)
+
+  if(version==null){
+
+    alert();
+
+    localStorage.setItem("version", "1");
+
+    $.removeCookie("initMR")
+    
+    location.reload();
+  }*/
+</script>
+
+
+<script type="text/javascript">
+  window.disableSpace=0;
+
+    var theme = location.href.split(/\?/)[1];
+    theme = theme || 'metro';
+    $("#theme").attr('href', "themes/"+ theme +"/css/jquery.msgbox.css");
+    
+    $ (document) .ready(function(){
+        var produce = function () {
+            $("pre.code").each (function(){
+                eval ($(this).text());
+            });
+        }
+        
+        $("#themeswitcher").val(theme);
+        
+        produce();
+        
+        $("#themeswitcher").change(function(){
+            location.href = location.href.split(/\?/)[0] + '?' + $(this).val();
+        });
+    });
+</script>
+<script type="text/javascript">
+    
+        var userId = 0;
+    var userName = "guest";
+
+    
+    var cargaConfiguracionesMr = "";
+
+    var isMovilSystem = 0;
+
+    var helpText = "Simulador de Memoria rápida Web Experimental\nEl software oficial usado en las competencias de este estilo se descarga en http://www.speed-memory.com/ \nClick en config para agregar posiciones propias de números\nAutoplay dispara las pruebas automáticamente con el intervalo de milisegundos y el límite de veces estipulado. Para hacer pausa desactive autoplay. \nAS muestra el resultado de la prueba automáticamente en Fast Mode. \nEl contador (C) aumenta cada vez que hacemos una prueba, se puede reiniciar haciendo click sobre el número del contador. Si se hace doble click en C, el contador desaparece hasta que se recargue la página. \n Existe un limite de configuraciones que se puede cargar, aprox: 200 números entre todas las configuraciones\n Cualquier duda, sugerencia o error encontrado no dudeis en contactar a robertchalean@gmail.com";
+
+
+</script></head>
+<body style="zoom: 100%;">
+    <script>
+    /*(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));*/
+  </script>
+
+  <a name="top">
+    </a><div id="navegar" style="font-size: 90%;"><a name="top">
+        </a><div id="controlesMR"><a name="top">
+              <!-- href="/home"  -->
+             <!-- <span id="myRand"></span> -->
+              </a><a href="http://localhost:13080/flashMemory" style="text-decoration:none;" class=""><b>MR</b></a> &nbsp;
+              <span id="abrirMRDiv"> 
+                <select id="abrirMR1" style="width: 65px"><option value="0" selected="selected">Nuevo</option></select>
+            </span>
+            &nbsp;
+            <span id="tiempoGo" onclick="mostrarTiempoTranscurrido();">500</span><span class="hide-mobile">ms</span>
+            &nbsp;
+            <span id="hide-fast-mode">
+              <span id="fast-mode-txt">Fast Mode</span><input type="checkbox" id="fastMode">
+            </span>
+            
+            <input type="button" name="go" value="GO!" id="goMR">
+            <input type="button" name="check" value="check" id="checkMR" class="disable-button"> 
+            <span id="controlesMR1" style="display: none;">
+                <input type="button" name="next" id="nextMR" class="next"> 
+                <input type="button" name="verify" id="verifyMR" class="lupa"> 
+            </span>
+            
+            <input type="button" value="config" id="boton-conf"> 
+            <!-- <input type="button" value="more" id="boton-more"> -->
+
+            <!--<div style="visibility: hidden;"> -->
+            
+            <span id="more-div">
+
+            <span class="hide-autoplay">
+              <input type="checkbox" id="autoplay" class="loop img-checkbox" title="Autoplay">&nbsp;<input type="text" style="width: 35px;" value="1000" id="tiempoAutoplay">
+
+            </span>
+
+            <span class="hide-mobile">ms</span>
+
+            <span id="myLimitSpan">
+            &nbsp;Limit&nbsp;
+            <input type="checkbox" id="limitautoplay" checked="checked">  
+            &nbsp;
+            <span id="pasadasTxt">0</span>/<input type="text" style="width: 30px;" value="30" id="cantidadLimitAutoplay">&nbsp;</span>
+
+            <span id="myRandom" style="display:none;">
+                <div class="dropdown">
+                <a href="http://localhost:13080/#" class="dropbtn" style="text-decoration: none; color:black;"><img src="Competicion%20mental_archivos/random.png" width="16px" height="16px"></a>
+                <div class="dropdown-content" style="width: 200px !important;">
+                <div id="">Active<input type="checkbox" id="randomActive"></div>  <br>
+                <div id=""><a href="http://localhost:13080/#" id="randomAll">All</a>/<a href="http://localhost:13080/#" id="randomNone">none</a>/<a href="http://localhost:13080/#" id="randomRandom">random</a> </div>  <br>
+                <div id="">
+                  <div style="width: 63px !important; float: left;"><input type="button" value="Set All" id="setAllRandom"></div><input type="text" style="width: 40px;" value="26000" id="allRandomText">ms<input type="text" style="width: 20px;" value="20" id="allRandomText1">s<input type="text" style="width: 20px;" value="5" id="allRandomText2">s<br>
+                </div>  <br>
+                <div style="width: 63px !important;"><input type="button" value="Reset All" id="resetAllRandom"></div><br>
+                <div id="lista"><div><input type="checkbox" id="itemRandom0" checked="checked"><div style="width: 50px !important; float: left;">Nuevo</div><input type="text" style="width: 35px;" value="1000" id="itemRandomText0">ms<input type="text" style="width: 20px;" value="0" id="itemRandomText10">s<input type="text" style="width: 20px;" value="0" id="itemRandomText20">s</div><br></div>
+                  
+                </div>
+              </div>
+                &nbsp;
+            </span>
+
+            <span id="myAutoShowSpan" style="display:none;">
+                <div class="dropdown">
+                <a href="http://localhost:13080/#" class="dropbtn" style="text-decoration: none; color:black;"><img src="Competicion%20mental_archivos/results.png" width="16px" height="16px"></a>
+                <div class="dropdown-content" style="width: 200px !important;">
+                  Active<input type="checkbox" id="autoshow">&nbsp; ch1<input type="text" style="width: 20px;" value="3" id="tiempoAutoshow">s&nbsp; ch2<input type="text" style="width: 20px;" value="3" id="tiempoAutoshow1">s
+                </div>
+              </div>
+                &nbsp;
+            </span>
+
+            <span ondblclick="$(this).hide();" id="myContadorSpan"><span id="contadorMR">0</span></span>
+
+            <span id="esconder-2020" style="display: none;">
+
+              <span id="ranking" title="ranking"><a href="http://localhost:13080/#"><img src="Competicion%20mental_archivos/trofeo.png" width="16px" height="16px"></a></span>&nbsp;
+
+              <span id="myCharts" title="Stats"><a href="http://localhost:13080/#"><img src="Competicion%20mental_archivos/3d_bar_chart.png" width="16px" height="16px"></a></span>&nbsp;
+
+              <span id="online-span" title="Duels"><a href="http://localhost:13080/#"><img src="Competicion%20mental_archivos/game1.png" width="16px" height="16px"></a></span>&nbsp;
+
+            </span><!-- fin esconder-2020 -->
+
+            <script type="text/javascript">$("#esconder-2020").hide(); </script>
+
+
+              <select id="tricky" style="width: 80px; display: none;" class="hide-mobile">
+                  <option value="0" selected="selected">no tricky</option>
+                  <option value="12">12%</option>
+                  <option value="25">25%</option>
+                  <option value="37">37%</option>
+                  <option value="50">50%</option>
+              </select>&nbsp;
+               
+
+            <style type="text/css">
+    .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+           
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+</style>
+<span id="myOther" style="font-size: 15px;" class="other-games">
+    <div class="dropdown">
+    <a href="http://localhost:13080/#" class="dropbtn">Other Games</a>
+    <div class="dropdown-content" style="width: 150px !important;">
+       <b>Memory Training</b><br><br>
+       <a href="http://bit.ly/2S1PyKw">MemoryDb Train your memory with your own databases</a><br>
+       <a href="http://localhost:13080/memoryFonts">memoryFonts</a><br>
+       <a href="http://localhost:13080/">Speed-Memory</a><br>
+       <!-- <a href="/worldAndFacesMemory">WorldAndFacesMemory</a><br> -->
+       <a href="http://localhost:13080/memoryMovie">Memory Movies!</a><br>
+       <a href="http://localhost:13080/memoryImages">Memory Images</a><br>
+       <!-- <a href="/memoryWorld2">Memory World2</a><br>  -->
+       <a href="http://localhost:13080/memoryWord">Memory Words</a><br>
+       <a href="http://localhost:13080/flashMemory">Flash Memory!</a><br>
+       <a href="http://localhost:13080/fNumbers">Flash Numbers!</a><br>
+       <a href="http://localhost:13080/memoryNumber">Memory Number</a><br>
+       <a href="http://localhost:13080/colors">Memory Color</a><br>
+       <a href="http://localhost:13080/memoryDirection">Memory Direction</a><br>
+       <a href="http://competicionmental.appspot.com/pinvegetables">Sistema Mayor Generator(Spanish)</a><br><br>
+       <b>Speed Reading</b><br>
+       <a href="http://lecturarapida-1090.appspot.com/">Speed Reading</a><br>
+       <!-- <a href="/multiReader">Multi-Reader</a><br> -->
+       <!-- <a href="/emdrReader">Emd Reader</a><br> -->
+       <!-- <a href="/partialWord">partialWord</a><br><br> --><br>
+       <b>Working Memory</b><br>
+       <!-- <a href="/locinback">Loci N-Back</a><br> -->
+       <a href="http://localhost:13080/3dnback">3D Dual N-Back</a><br>
+       <a href="http://localhost:13080/tts3dnback">Tts 3D Dual N-Back</a><br><br>
+       <b>Math</b><br>
+       <a href="http://textoimagenes.appspot.com/emvm/#matematica">Emvm Math</a><br>
+       <a href="http://localhost:13080/kevarom">Kevarom</a><br><br>
+       <b>Other</b><br>   
+       <a href="http://localhost:13080/memorySnake">Memory Snake</a><br>
+       <a href="http://leerencolores.appspot.com/circleColorAlphabet?en=1">Circle Color Synesthesia Alphabet</a><br>
+       <!-- <a href="http://leerencolores.appspot.com/">Color Alphabet</a><br> -->
+       <a href="https://alfabetomusical-1165.appspot.com/noteAlphabet3?en=1">Music Alphabet</a><br><br> 
+       <b>Blogs (Spanish)</b><br> 
+       <a href="http://atletismomental.blogspot.com.ar/">Atletismo Mental</a><br>
+       <a href="http://diariopositivo2015.blogspot.com.ar/">Diario Positivo</a><br>
+    </div>
+  </div>
+    &nbsp;
+</span>
+            <span id="zoom-span">
+              <select id="zoomMR" style="width: 60px;">
+                    <option value="20">20%</option>
+                    <option value="25">25%</option>
+                    <option value="30">30%</option>
+                    <option value="35">35%</option>
+                    <option value="40">40%</option>
+                    <option value="45">45%</option>
+                    <option value="50">50%</option>
+                    <option value="55">55%</option>
+                    <option value="60" selected="selected">60%</option>
+                    <option value="65">65%</option>
+                    <option value="70">70%</option>
+                    <option value="75">75%</option>
+                    <option value="80">80%</option>
+                    <option value="85">85%</option>
+                    <option value="90">90%</option>
+                    <option value="95">95%</option>
+                    <option value="100">100%</option>
+                    <option value="105">105%</option>
+                    <option value="110">110%</option>
+                    <option value="115">115%</option>
+                    <option value="120">120%</option>
+                    <option value="125">125%</option>
+                    <option value="150">150%</option>
+                    <option value="175">175%</option>
+                    <option value="200">200%</option>
+                    <option value="225">225%</option>
+
+                                  <!--<option value="5" onclick="alert('En construcción.');">palabras</option>-->
+
+              </select> 
+            
+
+            </span>&nbsp;
+            <script type="text/javascript">
+              modeColor=0;
+            </script>
+            <select id="modeColor" style="/*&quot;display:" none;*="" "="" onchange="if(parseInt(this.value)==1){ modeColor=1;  }else{ modeColor=0; } ">
+              <option value="1">c</option>
+              <option value="2" selected="selected" >n</option>
+              <option value="3">c2</option>
+              <option value="4">c3</option>
+              <option value="5" >c4</option>
+            </select>
+
+
+            <span id="control-usuarios" style="display: none;"><a href="#" onclick="" id="manage-acounts-btn">Log In or sign up</a></span>
+
+
+
+            &nbsp;<a href="http://localhost:13080/#" onclick="/*alert(window.helpText);*/ putHelp();" id="help-btn"><img src="Competicion%20mental_archivos/help.png"></a>
+             <script>
+setTimeout(()=>{
+$('#modeColor').val('2').trigger('change');
+$('#zoomMR').val('60').trigger('change');
+},1000)
+
+</script>
+            </span>
+        </div>  
+    </div>
+  <div style="clear:both;"></div>
+    <center>
+      <div id="screen" style="zoom: 0.6;">
+    <h3>Help-Ayuda</h3>
+        <br><center><a href="https://www.youtube.com/watch?v=yV4rr07ARko" style="zoom: 1;" target="_blank">https://www.youtube.com/watch?v=QgDsFTmYTBc</a></center>
+    <br><br>
+      <div style="">
+        <b>If you do not know anything about Speed-memory. You can go to:</b>
+        <br><br>
+        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Speed-memory Facebook Group</a>
+        <br>
+        <br><br>
+        <b>Guia para empezar en Speed-Memory</b>
+        <br><br>
+        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Grupo de  Facebook de Speed-memory</a>
+        <br>
+        <span style="display:none;">
+        <a href="http://www.nuecesyneuronas.com/mi-casillero-mental/" target="_blank">http://www.nuecesyneuronas.com/mi-casillero-mental/</a>
+        </span>
+        <br>
+        <a href="https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html" target="_blank">https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html</a>
+        <br>
+        <br>
+        <a href="https://www.speed-memory.com/" target="_blank">Based on https://www.speed-memory.com/</a>
+        <br><br>
+        contact: robertchalean@gmail.com
+      </div>
+       <br><br><br><br><br><br><br><br>
+    
+
+    </div>
+    </center>
+    <div style="clear:both;"></div>
+      <div id="div-configurar" style="display: none;">
+        <form id="myForm">
+            <table border="0" width="1200px" height="600px">
+                <tbody><tr>
+                    <td width="100" style="vertical-align: top;">
+                    <div id="control-configurar-div">
+                    <table>
+                        <tbody><tr width="100%">
+                            <td>
+                                <input type="button" value="-" id="restaDigitosMR">
+                                <input type="text" style="width: 30px;" value="6" id="digitosMR">
+                                <input type="button" value="+" id="sumaDigitosMR"> 
+                                <span id="digits-configuration-span">digits</span> 
+                                <select id="tipoMR">
+                                  <option value="0" selected="selected">dec</option>
+                                  <option value="1">bin6</option>
+                                  <option value="3">bin8</option>
+                                  <option value="2">letras</option>
+                                  <option value="4">aeiou</option>
+                                  <!--<option value="5" onclick="alert('En construcción.');">palabras</option>-->
+                                </select> 
+                                 <input type="text" style="width: 40px;" value="500" id="tiempoMR"> <span id="ms-hide"> ms </span> <span id="open-span">
+                                Open </span>
+
+                                <span id="move-1">
+                                  <span id="abrirMRDiv"> 
+                                      <select id="abrirMR"><option value="0" selected="selected">Nuevo</option></select>
+                                  </span>
+                                </span>
+
+                                 
+                            </td>
+                            <td>
+                                <span id="move-2">
+                                 <input type="button" value="Save" id="guardarMR"> <!-- <span id="espacioMR">4096</span>B --> <span class="destroy-br"><br></span>
+                                 <input type="button" value="delete" id="borrarMR"> <span class="destroy-br"><br></span>
+                                 <span id="delete-all-span" style="display: none;"><input type="button" value="Delete all" id="borrarTodoMR"><span id="delete-separator-span">|</span></span>
+                                </span>
+                            </td>
+                            <td id="select-td">
+                                 <input type="button" value="Unselect All" id="unselectMR"><br>
+                                <input type="text" style="width: 86px; display:none;" id="seleccionMR"><br>
+                                <span id="siguiente-span" style="display: none;">siguiente: <input type="text" style="width: 28px;" id="siguienteMR"></span>
+                            </td>
+                            <td>
+                              <div id="control-config">
+                               <span id="select-span"></span>
+                                <table>
+                                    <tbody><tr>
+                                        <td><input type="button" value="+&nbsp;" id="addMR"></td>
+                                        <td><input type="button" value="▲" id="upMR"></td>
+                                        <td><input type="button" value="-&nbsp;" id="restMR"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="button" value="◀" id="leftMR"></td>
+                                        <td><input type="text" style="width: 29px; text-align: center; pointer-events: none;" value="5" id="movimientoMR"></td>
+                                        <td><input type="button" value="▶" id="rightMR"></td>
+                                    </tr>
+                                    <tr>
+                                    <!-- <span id="currentMR"></span> -->
+                                      <td><input type="button" value="+" id="addMR1"></td>
+                                      <td><input type="button" value="▼" id="downMR"></td>
+                                      <td><input type="button" value="-" id="restMR1"></td>
+                                    </tr>
+                                </tbody></table>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div style="zoom: 0.8;" id="bin-controls-td">
+                                    <table>
+                                           <tbody><tr>
+                                                <td>
+                                                    000 <input type="text" style="width: 50px" class="bin-e" id="binMR0" value="r"> <br>
+                                                    001 <input type="text" style="width: 50px" class="bin-e" id="binMR1" value="t d"> <br>
+                                                    010 <input type="text" style="width: 50px" class="bin-e" id="binMR2" value="f"> <br>
+                                                    011 <input type="text" style="width: 50px" class="bin-e" id="binMR3" value="n"> <br>
+                                                </td>
+                                                <td>
+                                                    100 <input type="text" style="width: 50px" class="bin-e" id="binMR4" value="c k"> <br>
+                                                    101 <input type="text" style="width: 50px" class="bin-e" id="binMR5" value="l"> <br>
+                                                    110 <input type="text" style="width: 50px" class="bin-e" id="binMR6" value="s z"> <br>
+                                                    111 <input type="text" style="width: 50px" class="bin-e" id="binMR7" value="m"> <br>
+                                                </td>
+                                           </tr>     
+                                    </tbody></table>    
+                                </div>
+                            </td>
+                            <td id="guardar-bin-td">
+                                 <input type="button" value="Save" id="guardarMRBin">
+                            </td>
+                            <td valign="top" style="zoom: 0.9; display: none;" id="tamano-texto-td">
+                                <div>
+                                fonts: <br>
+                                 <select id="tipoLetra">
+                                    <option value="0" selected="selected">Arial</option>
+                                    <option value="1">Arial Black</option>
+                                    <option value="2">Comic Sans MS</option>
+                                    <option value="3">Impact</option>
+                                  </select>
+                                  <br>
+                                  <input type="number" value="30" name="num" min="0" max="50">
+                                  <br>
+                                  <input type="color" name="color" style="width: 32px;" value="#000000">
+
+                                   <!-- <div style="font-family: Georgia, serif;">hola</div>
+                                    <div style="font-family: 'Times New Roman', Times, serif;">hola</div>
+                                  </div> -->
+                            </div></td>
+                        </tr>  
+                        <tr>
+                          <td colspan="100" id="move-control">
+                            
+                          </td>
+                        </tr><tr>
+
+                    </tr></tbody></table>
+                    </div>
+                    <br>
+                    <div class="wrapper" div="numeros-configuracion-div">
+                        <div class="container" style="zoom: 0.6;"><div class="element colorElement" id="myElement0" style="color: rgb(0, 0, 0); margin-left: 20px; top: 200px; font-size: 40px;"> 					
+		<b title="0"> 0  </b>
+</div>	
+<script>
+	$("#myElement0").click(function(){
+		if(window.juegoReaction.matrizMRConfiguracion[0][6]==1){
+			$("#myElement0").css("color","rgb(0, 0, 0)"); 
+			window.juegoReaction.matrizMRConfiguracion[0][6]=0;
+
+		}else{
+			$("#myElement0").css("color","rgb(160, 160, 160)"); 
+			window.juegoReaction.matrizMRConfiguracion[0][6]=1;
+		}
+	});
+
+</script><div class="element colorElement" id="myElement1" style="color: rgb(0, 0, 0); margin-left: 50px; top: 200px; font-size: 40px;"> 					
+		<b title="1"> 1  </b>
+</div>	
+<script>
+	$("#myElement1").click(function(){
+		if(window.juegoReaction.matrizMRConfiguracion[1][6]==1){
+			$("#myElement1").css("color","rgb(0, 0, 0)"); 
+			window.juegoReaction.matrizMRConfiguracion[1][6]=0;
+
+		}else{
+			$("#myElement1").css("color","rgb(160, 160, 160)"); 
+			window.juegoReaction.matrizMRConfiguracion[1][6]=1;
+		}
+	});
+
+</script><div class="element colorElement" id="myElement2" style="color: rgb(0, 0, 0); margin-left: 110px; top: 200px; font-size: 40px;"> 					
+		<b title="2"> 2  </b>
+</div>	
+<script>
+	$("#myElement2").click(function(){
+		if(window.juegoReaction.matrizMRConfiguracion[2][6]==1){
+			$("#myElement2").css("color","rgb(0, 0, 0)"); 
+			window.juegoReaction.matrizMRConfiguracion[2][6]=0;
+
+		}else{
+			$("#myElement2").css("color","rgb(160, 160, 160)"); 
+			window.juegoReaction.matrizMRConfiguracion[2][6]=1;
+		}
+	});
+
+</script><div class="element colorElement" id="myElement3" style="color: rgb(0, 0, 0); margin-left: 140px; top: 200px; font-size: 40px;"> 					
+		<b title="3"> 3  </b>
+</div>	
+<script>
+	$("#myElement3").click(function(){
+		if(window.juegoReaction.matrizMRConfiguracion[3][6]==1){
+			$("#myElement3").css("color","rgb(0, 0, 0)"); 
+			window.juegoReaction.matrizMRConfiguracion[3][6]=0;
+
+		}else{
+			$("#myElement3").css("color","rgb(160, 160, 160)"); 
+			window.juegoReaction.matrizMRConfiguracion[3][6]=1;
+		}
+	});
+
+</script><div class="element colorElement" id="myElement4" style="color: rgb(0, 0, 0); margin-left: 200px; top: 200px; font-size: 40px;"> 					
+		<b title="4"> 4  </b>
+</div>	
+<script>
+	$("#myElement4").click(function(){
+		if(window.juegoReaction.matrizMRConfiguracion[4][6]==1){
+			$("#myElement4").css("color","rgb(0, 0, 0)"); 
+			window.juegoReaction.matrizMRConfiguracion[4][6]=0;
+
+		}else{
+			$("#myElement4").css("color","rgb(160, 160, 160)"); 
+			window.juegoReaction.matrizMRConfiguracion[4][6]=1;
+		}
+	});
+
+</script><div class="element colorElement" id="myElement5" style="color: rgb(0, 0, 0); margin-left: 230px; top: 200px; font-size: 40px;"> 					
+		<b title="5"> 5  </b>
+</div>	
+<script>
+	$("#myElement5").click(function(){
+		if(window.juegoReaction.matrizMRConfiguracion[5][6]==1){
+			$("#myElement5").css("color","rgb(0, 0, 0)"); 
+			window.juegoReaction.matrizMRConfiguracion[5][6]=0;
+
+		}else{
+			$("#myElement5").css("color","rgb(160, 160, 160)"); 
+			window.juegoReaction.matrizMRConfiguracion[5][6]=1;
+		}
+	});
+
+</script></div>
+                    </div>
+                    </td>
+                </tr> 
+            </tbody></table>
+           <!-- <input type="button" value="OK" id="boton-guardar"> <input type="reset" value="reset"> -->
+        </form>
+        
+    </div>
+    
+    
+     <ul id="messages" style="height: 50px;"></ul>
+         <center>
+  
+      <div style="margin-top: 100px; display: none;" id="logInOrSignUp">
+          <div style="float:left;"><div id="register">
+    <form action="http://localhost:13080/" id="testform">
+        <div id="mensaje-registro"></div>
+        <div id="ok-registro"></div>
+        <div id="formulario-registro">
+        Registrarse <span id="loading-span" style="display: none;"><img src="Competicion%20mental_archivos/loading.gif"></span> <br>
+        <input type="text" name="nombre" value="123" placeholder="nombre" id="nombre-usuario"><br>    
+        <input type="text" name="apellido" value="123" placeholder="apellido" id="apellido-usuario"><br>
+        <input type="text" name="email" placeholder="email" id="email-usuario"><br>
+        <input type="password" name="password" value="123123" placeholder="password" id="password-usuario"><br>
+        <input type="password" name="passwordRepetir" value="123123" placeholder="repetir password" id="password-repetir-usuario"><br>
+        <input type="button" name="registrar" value="registrar" id="registrar-btn"> <span class="tengo-cuenta" style="display: none;">Ya tienes una cuenta? <a href="http://localhost:13080/#">Iniciar Sesión</a></span>
+        <input type="hidden" name="configuraciones" value="" id="configuraciones-registrar">
+        </div>
+    </form>
+</div> </div>
+          <div style="float: left;"> <div id="login">
+    <form action="http://localhost:13080/" id="loginform">
+        <div id="mensaje-login"></div>
+        Log In <span id="loading-login-span" style="display: none;"><img src="Competicion%20mental_archivos/loading.gif"></span><br>
+        <input type="text" name="email" value="robertchalean@gmail.com" placeholder="email" id="email-login"><br>
+        <input type="password" name="password" value="123123" placeholder="password" id="password-login"><br>
+        <input type="button" name="login" value="Log In" id="login-btn">
+        </form></div>
+    
+</div></div> 
+      
+    </center>
+    
+    <div id="input-device"></div>
+<style>
+  .teclaFlash {
+    filter: brightness(1.45) saturate(1.4);
+    transform: scale(0.90);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.7);
+  }
+</style>
+
+    <div id="testLetter" style="font-size: 40px; display: none;">9</div>
+    <div id="footer" style="display: none;">
+        <div id="teclado" style="padding-bottom: 12px;"> <input type="button" name="btn-t-0" value="0" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-0"> <input type="button" name="btn-t-0" value="1" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-1"> <input type="button" name="btn-t-0" value="2" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-2"> <input type="button" name="btn-t-0" value="3" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-3"> <input type="button" name="btn-t-0" value="4" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-4"><br> <input type="button" name="btn-t-0" value="5" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-5"> <input type="button" name="btn-t-0" value="6" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-6"> <input type="button" name="btn-t-0" value="7" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-7"> <input type="button" name="btn-t-0" value="8" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-8"> <input type="button" name="btn-t-0" value="9" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-9"><br></div>
+        <input type="button" name="btn-z-nm" value="Go!" style="width: 50%; height: 100px; float: left;" id="btn-z-id" onclick="setPut=0;">
+        <input type="button" name="btn-x-nm" value="Check" style="width: 50%; height: 100px; float: right;" id="btn-x-id" onclick="setPut=0;" align="left">
+        
+        <script type="text/javascript">
+
+           macroBin6={ "0" : "000", "1" : "001", "2" : "011", "3" : "111", "4" : "100", "5": "101", "6" : "110", "7" : "010"  };
+
+           macroBin8={ "0" : "0000", "1" : "0001", "2" : "0010", "3" : "0011", "4" : "0100", "5": "0101", "6" : "0110", "7" : "0111", "8" : "1000", "9" : "1001", "A" : "1010", "B" : "1011", "C" : "1100" , "D" : "1101", "E" : "1110", "F" : "1111"  };
+
+var abc3 = {
+'a' : 'rgb(255,255,106)','A' : 'rgb(255,255,106)','á' : 'rgb(255,255,106)','Á' : 'rgb(255,255,106)',
+'b' : 'rgb(255,5,172)','B' : 'rgb(255,5,172)',
+'c' : 'rgb(255,213,255)','C' : 'rgb(255,213,255)',
+'d' : 'rgb(230,230,230)','D' : 'rgb(230,230,230)',
+'e' : 'rgb(255,153,0)','E' : 'rgb(255,153,0)','é' : 'rgb(255,153,0)','É' : 'rgb(255,153,0)',
+'f' : 'rgb(255,204,153)','F' : 'rgb(255,204,153)',
+'g' : 'rgb(186,22,131)','G' : 'rgb(186,22,131)',
+'h' : 'rgb(255,255,153)','H' : 'rgb(255,255,153)',
+'i' : 'rgb(0,255,0)','I' : 'rgb(0,255,0)','í' : 'rgb(0,255,0)','Í' : 'rgb(0,255,0)',
+'j' : 'rgb(255,153,153)','J' : 'rgb(255,153,153)',
+'k' : 'rgb(122,0,122)','K' : 'rgb(122,0,122)',
+'l' : 'rgb(255,0,0)','L' : 'rgb(255,0,0)',
+'m' : 'rgb(186,230,0)','M' : 'rgb(186,230,0)',
+'n' : 'rgb(204,153,102)','N' : 'rgb(204,153,102)','ñ' : 'rgb(204,153,102)','Ñ' : 'rgb(204,153,102)',
+'o' : 'rgb(153,153,153)','O' : 'rgb(153,153,153)','ó' : 'rgb(153,153,153)','Ó' : 'rgb(153,153,153)',
+'p' : 'rgb(204,255,204)','P' : 'rgb(204,255,204)',
+'q' : 'rgb(164,39,0)','Q' : 'rgb(164,39,0)',
+'r' : 'rgb(255,102,204)','R' : 'rgb(255,102,204)',
+'s' : 'rgb(133,194,255)','S' : 'rgb(133,194,255)',
+'t' : 'rgb(48,95,190)','T' : 'rgb(48,95,190)',
+'u' : 'rgb(255,255,0)','U' : 'rgb(255,255,0)','ú' : 'rgb(255,255,0)','Ú' : 'rgb(255,255,0)',
+'v' : 'rgb(0,0,255)','V' : 'rgb(0,0,255)',
+'w' : 'rgb(0,112,0)','W' : 'rgb(0,112,0)',
+'x' : 'rgb(153,102,102)','X' : 'rgb(153,102,102)',
+'y' : 'rgb(255,102,102)','Y' : 'rgb(255,102,102)',
+'z' : 'rgb(204,204,102)','Z' : 'rgb(204,204,102)'    
+};
+var abc3  =  {
+'a' : 'rgb(0,0,180)','A' : 'rgb(0,0,180)','á' : 'rgb(0,0,180)','Á' : 'rgb(0,0,180)','b' : 'rgb(175,13,102)','B' : 'rgb(175,13,102)','c' : 'rgb(146,248,70)','C' : 'rgb(146,248,70)','d' : 'rgb(255,200,47)','D' : 'rgb(255,200,47)','e' : 'rgb(255,118,0)','E' : 'rgb(255,118,0)','é' : 'rgb(255,118,0)','É' : 'rgb(255,118,0)','f' : 'rgb(255,152,213)','F' : 'rgb(255,152,213)','g' : 'rgb(235,235,222)','G' : 'rgb(235,235,222)','h' : 'rgb(100,100,100)','H' : 'rgb(100,100,100)','i' : 'rgb(255,255,0)','I' : 'rgb(255,255,0)','í' : 'rgb(255,255,0)','Í' : 'rgb(255,255,0)','j' : 'rgb(255,255,150)','J' : 'rgb(255,255,150)','k' : 'rgb(55,19,112) ','K' : 'rgb(55,19,112) ','l' : 'rgb(202,62,94)','L' : 'rgb(202,62,94)','m' : 'rgb(205,145,63)','M' : 'rgb(205,145,63)','n' : 'rgb(12,75,100)','N' : 'rgb(12,75,100)','ñ' : 'rgb(12,75,100)','ñ' : 'rgb(12,75,100)','o' : 'rgb(255,0,0)','O' : 'rgb(255,0,0)','ó' : 'rgb(255,0,0)','Ó' : 'rgb(255,0,0)','p' : 'rgb(175,155,50)','P' : 'rgb(175,155,50)','q' : 'rgb(185,185,185)','Q' : 'rgb(185,185,185)','r' : 'rgb(37,70,25)','R' : 'rgb(37,70,25)','s' : 'rgb(121,33,135)','S' : 'rgb(121,33,135)','t' : 'rgb(83,140,208)','T' : 'rgb(83,140,208)','u' : 'rgb(0,154,37)','U' : 'rgb(0,154,37)','ú' : 'rgb(0,154,37)','Ú' : 'rgb(0,154,37)','v' : 'rgb(178,220,205)','V' : 'rgb(178,220,205)','w' : 'rgb(169,34,0)','W' : 'rgb(169,34,0)','x' : 'rgb(0,0,74)','X' : 'rgb(0,0,74)','y' : 'rgb(175,200,74)','Y' : 'rgb(175,200,74)','z' : 'rgb(63,25,12)','Z' : 'rgb(63,25,12)','0' : 'rgb(0,0,180)','0' : 'rgb(0,0,180)','1' : 'rgb(175,13,102)','1' : 'rgb(175,13,102)','2' : 'rgb(146,248,70)','2' : 'rgb(146,248,70)','3' : 'rgb(255,200,47)','3' : 'rgb(255,200,47)','4' : 'rgb(255,118,0)','4' : 'rgb(255,118,0)','5' : 'rgb(255,152,213)','5' : 'rgb(255,152,213)','6' : 'rgb(235,235,222)','6' : 'rgb(235,235,222)','7' : 'rgb(100,100,100)','7' : 'rgb(100,100,100)','8' : 'rgb(255,255,0)','8' : 'rgb(255,255,0)','9' : 'rgb(255,255,150)','9' : 'rgb(255,255,150)'        
+};
+
+
+function colorTecla(v){
+  if(color_1[v] !== undefined) return color_1[v];
+  if(abc3[v] !== undefined) return abc3[v];
+  return "rgb(230,230,230)";
+}
+
+function colorTextoTecla(v){
+  if(v === "0" || v === "1" || v === "6" || v === "7" || v === "8" || v === "v" || v === "V" || v === "t" || v === "T"){
+    return "#fff";
+  }
+
+  return "#000";
+}
+
+function estiloTecla(v, width, extra=""){
+  return `
+    width:${width}px;
+    ${extra}
+    background:${colorTecla(v)};
+    color:${colorTextoTecla(v)};
+    font-weight:bold;
+    border:1px solid #333;
+    border-radius:8px;
+    transition:all 0.12s ease;
+  `;
+}
+
+function flashBtn(btn){
+  btn.classList.add("teclaFlash");
+
+  if(btn._flashTimeout){
+    clearTimeout(btn._flashTimeout);
+  }
+
+  btn._flashTimeout = setTimeout(function(){
+    btn.classList.remove("teclaFlash");
+    btn._flashTimeout = null;
+  }, 300);
+}
+     
+function tecladoAlfabeto(){
+
+  setPut=0;
+  poner="";
+  var ww=$(window).width();
+  _t="abcdefghijklmnopqrstuvwxyz";
+
+  for(i=0;i<_t.length;i++){
+    let v = _t.charAt(i);
+
+    poner+=` <input type="button" 
+      name="btn-t-${i}" 
+      value="${v}" 
+      onclick="flashBtn(this); $('#respuestaMRId'+setPut).val(this.value); setPut++;" 
+      style="${estiloTecla(v, (ww-50)/9, 'margin-bottom:5px; height:40px;')}" 
+      id="btn-t-${i}">`;
+  }
+
+  poner+="<br>";
+  $("#teclado").html(poner);
+
+}
+
+function tecladoVocal(){
+
+  setPut=0;
+  poner="";
+  var ww=$(window).width();
+  _t="AEIOU";
+
+  for(i=0;i<5;i++){
+    let v = _t.charAt(i);
+
+    poner+=` <input type="button" 
+      name="btn-t-${i}" 
+      value="${v}" 
+      onclick="flashBtn(this); $('#respuestaMRId'+setPut).val(this.value); setPut++;" 
+      style="${estiloTecla(v, (ww-50)/5, 'height:40px;')}" 
+      id="btn-t-${i}">`;
+  }
+
+  poner+="<br>";
+  $("#teclado").html(poner);
+
+}
+
+function tecladoDecimal(){
+
+  setPut=0;
+  poner="";
+  var ww=$(window).width();
+
+  for(i=0;i<10;i++){
+    let v = String(i);
+
+    poner+=` <input type="button" 
+      name="btn-t-${i}" 
+      value="${v}" 
+      onclick="flashBtn(this); $('#respuestaMRId'+setPut).val(this.value); setPut++;" 
+      style="${estiloTecla(v, (ww-50)/5, 'margin-bottom:15px; height:50px;')}" 
+      id="btn-t-${i}">`;
+
+    if(i==4){ poner+="<br>"; } 
+  }
+
+  poner+="<br>";
+  $("#teclado").html(poner);
+
+}
+
+function macro(x,y){
+
+  for(var i=0;i<y.length;i++){
+    $('#respuestaMRId'+setPut).val( y.charAt(i) );
+    setPut++;
+  }
+
+}
+
+function tecladoBin6(x=0){
+
+  if(x==0) setPut=0;
+  poner="";
+  var ww=$(window).width();
+
+  for(i=0;i<2;i++){
+    let v = String(i);
+
+    poner+=` <input type="button" 
+      name="btn-tt-${i}" 
+      value="${v}" 
+      onclick="flashBtn(this); $('#respuestaMRId'+setPut).val(this.value); setPut++;" 
+      style="${estiloTecla(v, (ww-50)/4, 'margin-bottom:5px; height:40px;')}" 
+      id="btn-t-${i}">`;
+  }
+
+  for(i=0;i<8;i++){
+    let v = String(i);
+
+    poner+=` <input type="button" 
+      name="btn-tt-${i}" 
+      value="${v}" 
+      onclick="flashBtn(this); macro(setPut,macroBin6['${v}']);" 
+      style="${estiloTecla(v, (ww-50)/4, 'margin-bottom:5px; height:40px;')}" 
+      id="btn-t-${i}">`;
+  }
+
+  poner+=` <input type="button" 
+    name="btn-t-${i++}" 
+    value="B" 
+    onclick="flashBtn(this); tecladoBin8(1);" 
+    style="${estiloTecla('B', (ww-50)/4, 'height:40px; margin-bottom:5px;')}" 
+    id="btn-t-${i++}">`;
+
+  poner+="<br>";
+  $("#teclado").html(poner);
+
+}
+
+function tecladoBin8(x=0){
+
+  if(x==0) setPut=0;
+  poner="";
+  var ww=$(window).width();
+
+  for(i=0;i<2;i++){
+    let v = String(i);
+
+    poner+=` <input type="button" 
+      name="btn-tt-${i}" 
+      value="${v}" 
+      onclick="flashBtn(this); $('#respuestaMRId'+setPut).val(this.value); setPut++;" 
+      style="${estiloTecla(v, (ww-50)/5, 'margin-bottom:5px; height:40px;')}" 
+      id="btn-t-${i}">`;
+  }
+
+  _t="0123456789ABCDEF";
+
+  for(i=0;i<_t.length;i++){
+    let v = _t.charAt(i);
+
+    poner+=` <input type="button" 
+      name="btn-tt-${i}" 
+      value="${v}" 
+      onclick="flashBtn(this); macro(setPut,macroBin8['${v}']);" 
+      style="${estiloTecla(v, (ww-50)/5, 'margin-bottom:5px; height:40px;')}" 
+      id="btn-t-${i}">`;
+  }
+
+  poner+=` <input type="button" 
+    name="btn-tt-${i++}" 
+    value="B" 
+    onclick="flashBtn(this); tecladoBin6(1);" 
+    style="${estiloTecla('B', (ww-50)/5, 'margin-bottom:5px; height:40px;')}" 
+    id="btn-t-${i++}">`;
+
+  poner+="<br>";
+  $("#teclado").html(poner);
+
+}
+
+tecladoDecimal();     
+        </script>
+    </div>
+
+    <script type="text/javascript">
+      window.footerHeight=$("#footer").height();
+    </script>
+
+    <form action="http://localhost:13080/" id="configuracionesform">
+    <input type="hidden" name="configuraciones_mr" value="Nuevo*0*500*6*20 200 1-50 200 2-110 200 3-140 200 4-200 200 5-230 200 6" id="configuraciones-mr">
+    <input type="hidden" name="accion_mr" value="" id="accion-mr">
+</form>
+    <script type="text/javascript">
+
+mensaje = "";
+bOk = 1;
+buttonDisable = 0;
+nombre = "";
+
+$("#loading-span").hide();
+
+$("#registrar-btn").click(function(){
+
+    $('#abrirMR1').prop('disabled', true);
+
+    $("#loading-span").show();
+    if(buttonDisable)
+        return;
+
+    buttonDisable = 1;
+
+    $("#mensaje-registro").html("");
+    mensaje="";
+    
+    nombre = $("#nombre-usuario").val();
+    apellido = $("#apellido-usuario").val();
+    email = $("#email-usuario").val();
+    password = $("#password-usuario").val();
+    passwordRepetir = $("#password-repetir-usuario").val();
+    
+    if(nombre.length < 2){
+        bOk = 0;
+        mensaje += "Debe completar un nombre de usuario <br>"
+    }
+    if(apellido.length < 2){
+        bOk = 0;
+        mensaje += "Debe completar un nombre de usuario <br>"
+    }
+    if(!validarEmail(email)){
+        bOk = 0;
+        mensaje += "Email incorrecto <br>"
+    }
+    if(password.length < 6){
+        bOk = 0;
+        mensaje += "El passoword debe tener por lo menos 6 caracteres <br>"
+    }
+    if(password != passwordRepetir){
+        bOk = 0;    
+        mensaje += "Los password no coinciden<br>"
+    }
+    if(bOk){
+
+        $.post( "/ajaxRegistrar", $( "#testform" ).serialize())
+             .done(function( data ) {
+                 if(parseInt(data)==0){
+                     mensaje += "El mail ya esta registrado";
+                     $("#mensaje-registro").html(mensaje);
+                     buttonDisable = 0;
+                     $("#loading-span").hide();
+                     $('#abrirMR1').prop('disabled', false);
+                 }else{
+                     userId = data;
+                    userName = nombre;
+
+                     $("#ok-registro").html("<br>Usuario registrado: " + data);
+                     //$("#formulario-registro").html("");
+                     $("#loading-span").hide();
+                     $("#logInOrSignUp").hide();
+
+                     ponerLogout(nombre);
+                    
+                     $.post('/configuracionesMr', $('#configuracionesform').serialize()).done (function(data){
+                         //alert(data);
+                         window.juegoReaction.iniciarMR();
+
+                     });
+                     buttonDisable = 0;
+                    
+                 }
+                
+          });
+         
+    }else{
+        $('#abrirMR1').prop('disabled', false);
+        $("#mensaje-registro").html(mensaje);
+        buttonDisable = 0;
+        $("#loading-span").hide();
+    }
+});
+
+bOkLogin = 1;
+mensajeLogin = "";
+buttonDisableLogin = 0;
+$("#loading-login-span").hide();
+
+$("#login-btn").click(function(){
+    $('#abrirMR1').prop('disabled', true);
+    //console.log("login-btn");
+
+    if(buttonDisableLogin)
+        return;
+
+    $("#loading-login-span").show();
+
+    buttonDisableLogin = 1;
+
+    $("#mensaje-login").html("");
+    mensajeLogin="";
+    
+    
+    email = $("#email-login").val();
+    password = $("#password-login").val();
+
+
+    if(!validarEmail(email)){
+        bOkLogin = 0;
+        mensajeLogin += "Email incorrecto <br>"
+    }
+    if(password.length < 6){
+        bOkLogin = 0;
+        mensajeLogin += "El passoword debe tener por lo menos 6 caracteres <br>"
+    }
+    if(bOkLogin){
+
+
+        $.post( "/ajaxLogin", $( "#loginform" ).serialize())
+             .done(function( data ) {
+            
+                 if(parseInt(data)!=0){
+                     texto = data.split("|");
+
+                     ponerLogout(texto[1]);
+                             
+                     $("#loading-login-span").hide();
+                     $("#logInOrSignUp").hide();
+
+                     userId = parseInt(texto[0]);
+                    userName = texto[1];
+
+                    window.juegoReaction.iniciarMR();
+
+                     
+                     buttonDisableLogin = 0;
+
+                                         
+                 }else{
+                     mensajeLogin += "Usuario o contraseña incorrectos";
+                     $("#mensaje-login").html(mensajeLogin);
+                     buttonDisableLogin = 0;
+                     $("#loading-login-span").hide();
+                     $('#abrirMR1').prop('disabled', false);
+                 }
+                
+          });
+         
+    }else{
+        $("#loading-login-span").hide();
+        $("#mensaje-login").html(mensajeLogin);
+        $('#abrirMR1').prop('disabled', false);
+        buttonDisableLogin = 0;
+        
+    }
+});
+
+function ponerLogout(myName){
+    controlTxt = '<div class="dropdown">' +
+                     
+      '<span><a href="#" id="logout">' + myName + '</a></span>' +
+      '<div class="dropdown-content">' +
+      '<a href="#" id="logout-link">Log out</a>' + 
+    '</div>' ;
+                     
+     $("#control-usuarios").html(controlTxt);
+
+     $("#logout-link").click(function(){
+
+        $.post( "/logout", {})
+            .done(function( data ) {
+            userId = 0;
+            userName = "guest";
+            
+            ponerControlUsuarios();
+            
+            window.juegoReaction.iniciarMR();
+            });
+
+    });
+}
+
+function ponerControlUsuarios(){
+
+    if(isMovilSystem){
+
+        $("#control-usuarios").html("&nbsp;<a href=\"#\" onclick=\"\" id=\"manage-acounts-btn\"><img src=\"img/user.png\"></a>");
+    }else{
+        $("#control-usuarios").html("<a href=\"#\" onclick=\"\" id=\"manage-acounts-btn\">Log In or sign up</a>");
+
+    }
+    
+
+            $("#manage-acounts-btn").click(function(){
+                if(verSignInOrSignOut){
+                    $('#logInOrSignUp').show();
+
+                     verSignInOrSignOut = 0;
+                 }else{
+
+                     $('#logInOrSignUp').hide();
+                     verSignInOrSignOut = 1;
+                 }
+
+            });
+
+
+}
+
+function validarEmail( email ) {
+    expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if ( !expr.test(email) )
+       return 0;
+   return 1;
+}
+
+verSignInOrSignOut = 1;
+/*
+setInterval(function(){
+    $.post('/duelosMr', {}).done (function(data){
+                         //alert(data);
+                         $("#myRand").html(data);
+
+                     });
+
+
+},500);*/
+
+</script>    <script type="text/javascript">
+    //alert();
+    /*
+var socket = io("http://localhost:3000");
+      $('form').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+
+*/
+/*
+ console.log(location.origin);
+  console.log(location.origin.replace(/^http/, 'ws'));
+  var host = "ws://localhost:5000";
+  var ws = new WebSocket(host);
+  ws.onmessage = function (event) {
+    var li = document.createElement('li');
+    li.innerHTML = JSON.parse(event.data);
+    console.log(event.data);
+    //li.innerHTML = envent.data
+    document.querySelector('#pings').appendChild(li);
+
+     ws.send("holis");
+  };*/
+
+</script>
+  <script src="Competicion%20mental_archivos/jquery.msgbox.js" type="text/javascript"></script>
+   <script src="Competicion%20mental_archivos/jquery.cookie.js" type="text/javascript"></script> 
+
+       <script src="Competicion%20mental_archivos/underscore-min.js" type="text/javascript"></script> 
+    <script src="Competicion%20mental_archivos/em2.js" type="text/javascript"></script> 
+  <script type="text/javascript">
+  $(".tengo-cuenta").hide();
+  function putHelp(){
+    myScreen=
+    `
+    <h3>Help-Ayuda</h3>
+        <br><center><a href="https://www.youtube.com/watch?v=yV4rr07ARko" style="zoom: 1;" target="_blank">https://www.youtube.com/watch?v=QgDsFTmYTBc</a></center>
+    <br><br>
+      <div style="">
+        <b>If you do not know anything about Speed-memory. You can go to:</b>
+        <br><br>
+        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Speed-memory Facebook Group</a>
+        <br>
+        <br><br>
+        <b>Guia para empezar en Speed-Memory</b>
+        <br><br>
+        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Grupo de  Facebook de Speed-memory</a>
+        <br>
+        <span style="display:none;">
+        <a href="http://www.nuecesyneuronas.com/mi-casillero-mental/" target="_blank">http://www.nuecesyneuronas.com/mi-casillero-mental/</a>
+        </span>
+        <br>
+        <a href="https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html" target="_blank">https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html</a>
+        <br>
+        <br>
+        <a href="https://www.speed-memory.com/" target="_blank">Based on https://www.speed-memory.com/</a>
+        <br><br>
+        contact: robertchalean@gmail.com
+      </div>
+       <br><br><br><br><br><br><br><br>
+    
+
+    `;
+
+    $("#screen").html(myScreen);
+
+
+  }
+
+  putHelp();
+
+  window.log="";
+
+  function putHelpMobile(){
+
+    myScreen = `
+
+    <h3>Help-Ayuda</h3><br><br><center><a href="https://www.youtube.com/watch?v=iSEKWwnB8KE" target="_blank" style="zoom: 2;">https://www.youtube.com/watch?v=iSEKWwnB8KE</a></center>
+      <br><br>
+      <a href="#" onclick="$('.hide-autoplay').show()" style="zoom: 1.5;">show autoplay controls</a>
+      <br><br><br>
+      <div style="zoom:2">
+        <b>If you do not know anything about Speed-memory. You can go to:</b>
+        <br><br>
+        <a href="http://www.insanity-mind.com/train-speed-memory-championship/" target="_blank">http://www.insanity-mind.com/train-speed-memory-championship/</a>
+        <br>
+        <a href="http://www.insanity-mind.com/train-memory-championship-ii-figures-test/" target="_blank">http://www.insanity-mind.com/train-memory-championship-ii-figures-test/</a>
+        <br><br>
+        <b>Guia para empezar en Speed-Memory</b>
+        <br><br>
+        <a href="http://www.insanity-mind.com/insanitymind_es/como-entrenar-para-un-torneo-de-memoria-rapida-i/" target="_blank">http://www.insanity-mind.com/insanitymind_es/como-entrenar-para-un-torneo-de-memoria-rapida-i/</a>
+        <br>
+        <a href="http://www.insanity-mind.com/insanitymind_es/entrenar-para-un-campeonato-ii-figuras/" target="_blank">http://www.insanity-mind.com/insanitymind_es/entrenar-para-un-campeonato-ii-figuras/</a>
+        <br>
+        <a href="http://www.nuecesyneuronas.com/mi-casillero-mental/" target="_blank">http://www.nuecesyneuronas.com/mi-casillero-mental/</a>
+        <br>
+        <a href="https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html" target="_blank">https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html</a>
+        <br>
+        <br>
+        <a href="https://www.speed-memory.com/" target="_blank">Based on https://www.speed-memory.com/</a>
+        <br><br>
+        contact: robertchalean@gmail.com
+        <br>
+        <span id="log">${window.log}</span>
+      </div>
+
+       <br><br><br><br><br><br><br><br>
+      
+
+
+
+    `;
+   
+    $("#screen").html(myScreen)
+  }
+
+  $("#screen").append(``);
+
+  ww=$(window).width();
+  hh=$(window).height();
+
+  if(ww<=1000){
+    $("#help-btn").hide();
+
+    $("body").append(`
+      <style>
+         select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+      </style>
+    `)
+  } 
+  
+  window.countCheck=0;
+
+  document.getElementById("controlesMR").onkeydown = function(e){
+//if (e.which == 13) //13 is the keycode referring to enter.
+ //   {
+       e.preventDefault(); //this will prevent the intended purpose of the event. 
+       return false; //return false on the event.
+  //  }
+}
+  </script>
+
+
+
+
+
+<div class="jMsgbox-overlay" style="position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; opacity: 0; z-index: 134; display: none;"></div><span class="jMsgbox-wrap" style="width: 350px; height: 220px; position: fixed; overflow: hidden; top: 332.5px; left: 765.5px; z-index: 134; opacity: 0; display: none;"><div class="jMsgbox-title" style="position: relative; height: 30px; cursor: move; line-height: 30px;"><span class="jMsgbox-controls" style="position: absolute; height: 100%;"><a class="jMsgbox-max" href="javascript:;" title="Maximize" style="display: inline-block;"></a><a class="jMsgbox-close" href="javascript:;" title="Close" style="display: inline-block;"></a></span></div><div class="jMsgbox-content" style="overflow: hidden; position: relative; height: 190px;"><div class="jMsgbox-loaded" style="padding: 12px; width: 100%; height: 100%; overflow: auto;"><div class="element" id="myElementGo0" style="position: absolute !important; margin-left: 350px; top: 80px;  font-size: 40px;">                     
+        <b> 3  </b>
+</div>    <div class="element" id="myElementGo1" style="position: absolute !important; margin-left: 380px; top: 80px;  font-size: 40px;">                     
+        <b> 9  </b>
+</div>    <div class="element" id="myElementGo2" style="position: absolute !important; margin-left: 410px; top: 80px;  font-size: 40px;">                     
+        <b> 8  </b>
+</div>    <div class="element" id="myElementGo3" style="position: absolute !important; margin-left: 350px; top: 110px;  font-size: 40px;">                     
+        <b> 0  </b>
+</div>    <div class="element" id="myElementGo4" style="position: absolute !important; margin-left: 380px; top: 110px;  font-size: 40px;">                     
+        <b> 0  </b>
+</div>    <div class="element" id="myElementGo5" style="position: absolute !important; margin-left: 410px; top: 110px;  font-size: 40px;">                     
+        <b> 2  </b>
+</div>    <div class="element" id="myElementGo6" style="position: absolute !important; margin-left: 350px; top: 140px;  font-size: 40px;">                     
+        <b> 0  </b>
+</div>    <div class="element" id="myElementGo7" style="position: absolute !important; margin-left: 380px; top: 140px;  font-size: 40px;">                     
+        <b> 8  </b>
+</div>    <div class="element" id="myElementGo8" style="position: absolute !important; margin-left: 20px; top: 80px;  font-size: 40px;">                     
+        <b> 7  </b>
+</div>    <div class="element" id="myElementGo9" style="position: absolute !important; margin-left: 50px; top: 80px;  font-size: 40px;">                     
+        <b> 0  </b>
+</div>    <div class="element" id="myElementGo10" style="position: absolute !important; margin-left: 110px; top: 80px;  font-size: 40px;">                     
+        <b> 9  </b>
+</div>    <div class="element" id="myElementGo11" style="position: absolute !important; margin-left: 140px; top: 80px;  font-size: 40px;">                     
+        <b> 0  </b>
+</div>    <div class="element" id="myElementGo12" style="position: absolute !important; margin-left: 200px; top: 80px;  font-size: 40px;">                     
+        <b> 1  </b>
+</div>    <div class="element" id="myElementGo13" style="position: absolute !important; margin-left: 230px; top: 80px;  font-size: 40px;">                     
+        <b> 0  </b>
+</div>    <div class="element" id="myElementGo14" style="position: absolute !important; margin-left: 200px; top: 110px;  font-size: 40px;">                     
+        <b> 9  </b>
+</div>    <div class="element" id="myElementGo15" style="position: absolute !important; margin-left: 230px; top: 110px;  font-size: 40px;">                     
+        <b> 7  </b>
+</div>    <div class="element" id="myElementGo16" style="position: absolute !important; margin-left: 290px; top: 110px;  font-size: 40px;">                     
+        <b> 8  </b>
+</div>    <div class="element" id="myElementGo17" style="position: absolute !important; margin-left: 320px; top: 110px;  font-size: 40px;">                     
+        <b> 2  </b>
+</div>    </div><a class="jMsgbox-resize" href="javascript:;" style="cursor: se-resize; position: absolute; bottom: 0px; right: 0px; display: inline-block;"></a></div></span><div class="jMsgbox-overlay" style="position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; opacity: 0; display: none;"></div><span class="jMsgbox-wrap" style="display: none; width: 350px; height: 220px; position: fixed; overflow: hidden; top: 286.5px; left: 785px;"><div class="jMsgbox-title" style="position: relative; height: 30px; cursor: move;"><span class="jMsgbox-controls" style="position: absolute; height: 100%;"><a class="jMsgbox-max" href="javascript:;" title="Maximize" style="display: inline-block;"></a><a class="jMsgbox-close" href="javascript:;" title="Close" style="display: inline-block;"></a></span></div><div class="jMsgbox-content" style="overflow: hidden; position: relative;"><div class="jMsgbox-loaded" style="padding: 12px; width: 100%; height: 100%; overflow: auto;"></div><a class="jMsgbox-resize" href="javascript:;" style="cursor: se-resize; position: absolute; bottom: 0px; right: 0px; display: inline-block;"></a></div></span></body></html>
