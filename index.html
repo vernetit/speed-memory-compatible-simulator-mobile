@@ -127,8 +127,6 @@ return
    //   alert("No se pudo copiar: " + err);
     });
 }, 3000);
-
-/*
 setTimeout(() => {
 numero = Math.random() < 0.5 ? "bin" : "Dec";
 if(numero == "bin"){ 
@@ -172,10 +170,12 @@ setTimeout(function() {
  // alert("eibin");
 }, 13 * 60 * 1000);
 setTimeout(function() {
-  alert1("figuras y colores");
+numero = Math.random() < 0.5 ? "figuras y colores" : "matrix";
+  
+alert1(numero);
 }, 10* 60 * 1000);
 
-*/
+
 
 </script>
 
@@ -340,8 +340,8 @@ var abc1  =  {
             <input type="button" name="go" value="GO!" id="goMR">
             <input type="button" name="check" value="check" id="checkMR" class="disable-button"> 
             <span id="controlesMR1" style="display: none;">
-                <input type="button" name="next" id="nextMR" class="next"> 
-                <input type="button" name="verify" id="verifyMR" class="lupa"> 
+                <input type="button" name="next" id="nextMR"  value="▶️"    class="next"> 
+                <input type="button" name="verify" id="verifyMR" value="🔍" class="lupa"> 
             </span>
             
             <input type="button" value="config" id="boton-conf"> 
@@ -352,7 +352,16 @@ var abc1  =  {
             <span id="more-div">
 
             <span class="hide-autoplay">
-              <input type="checkbox" id="autoplay" class="loop img-checkbox" title="Autoplay">&nbsp;<input type="text" style="width: 35px;" value="1000" id="tiempoAutoplay">
+              <input type="checkbox" id="autoplay" class="" title="Autoplay" style=" appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  position: static !important;
+  display: inline-block !important;
+  transform: none !important;
+  margin: 3px 6px 3px 3px;
+">&nbsp;<input type="text" style="width: 35px;" value="1000" id="tiempoAutoplay">
 
             </span>
 
@@ -546,21 +555,7 @@ $('#zoomMR').val('60').trigger('change');
         <br><center><a href="https://www.youtube.com/watch?v=yV4rr07ARko" style="zoom: 1;" target="_blank">https://www.youtube.com/watch?v=QgDsFTmYTBc</a></center>
     <br><br>
       <div style="">
-        <b>If you do not know anything about Speed-memory. You can go to:</b>
-        <br><br>
-        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Speed-memory Facebook Group</a>
-        <br>
-        <br><br>
-        <b>Guia para empezar en Speed-Memory</b>
-        <br><br>
-        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Grupo de  Facebook de Speed-memory</a>
-        <br>
-        <span style="display:none;">
-        <a href="http://www.nuecesyneuronas.com/mi-casillero-mental/" target="_blank">http://www.nuecesyneuronas.com/mi-casillero-mental/</a>
-        </span>
-        <br>
-        <a href="https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html" target="_blank">https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html</a>
-        <br>
+        
         <br>
         <a href="https://www.speed-memory.com/" target="_blank">Based on https://www.speed-memory.com/</a>
         <br><br>
@@ -838,10 +833,21 @@ $('#zoomMR').val('60').trigger('change');
     <div id="testLetter" style="font-size: 40px; display: none;">9</div>
     <div id="footer" style="display: none;">
         <div id="teclado" style="padding-bottom: 12px;"> <input type="button" name="btn-t-0" value="0" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-0"> <input type="button" name="btn-t-0" value="1" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-1"> <input type="button" name="btn-t-0" value="2" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-2"> <input type="button" name="btn-t-0" value="3" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-3"> <input type="button" name="btn-t-0" value="4" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-4"><br> <input type="button" name="btn-t-0" value="5" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-5"> <input type="button" name="btn-t-0" value="6" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-6"> <input type="button" name="btn-t-0" value="7" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-7"> <input type="button" name="btn-t-0" value="8" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-8"> <input type="button" name="btn-t-0" value="9" onclick="$('#respuestaMRId'+setPut).val(this.value); setPut++;" style="width: 374; /*font-size: 20px;*/ margin-bottom:15px; height: 50px;" id="btn-t-9"><br></div>
-        <input type="button" name="btn-z-nm" value="Go!" style="width: 50%; height: 100px; float: left;" id="btn-z-id" onclick="setPut=0;">
-        <input type="button" name="btn-x-nm" value="Check" style="width: 50%; height: 100px; float: right;" id="btn-x-id" onclick="setPut=0;" align="left">
+        <input type="button" name="btn-z-nm" value="Go!" style="width: 50%; height: 150px; float: left;" id="btn-z-id" onclick="setPut=0;">
+        <input type="button" name="btn-x-nm" value="Check" style="width: 50%; height: 150px; float: right;" id="btn-x-id" onclick="setPut=0;" align="left">
         
         <script type="text/javascript">
+        
+        setInterval(function () {
+  const ids = ["btn-z-id", "btn-x-id"];
+
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.style.setProperty("height", "150px", "important");
+    }
+  });
+}, 100);
 
            macroBin6={ "0" : "000", "1" : "001", "2" : "011", "3" : "111", "4" : "100", "5": "101", "6" : "110", "7" : "010"  };
 
@@ -1370,21 +1376,7 @@ var socket = io("http://localhost:3000");
         <br><center><a href="https://www.youtube.com/watch?v=yV4rr07ARko" style="zoom: 1;" target="_blank">https://www.youtube.com/watch?v=QgDsFTmYTBc</a></center>
     <br><br>
       <div style="">
-        <b>If you do not know anything about Speed-memory. You can go to:</b>
-        <br><br>
-        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Speed-memory Facebook Group</a>
-        <br>
-        <br><br>
-        <b>Guia para empezar en Speed-Memory</b>
-        <br><br>
-        <a href="https://www.facebook.com/groups/37502987965" target="_blank">Grupo de  Facebook de Speed-memory</a>
-        <br>
-        <span style="display:none;">
-        <a href="http://www.nuecesyneuronas.com/mi-casillero-mental/" target="_blank">http://www.nuecesyneuronas.com/mi-casillero-mental/</a>
-        </span>
-        <br>
-        <a href="https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html" target="_blank">https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html</a>
-        <br>
+          <br>
         <br>
         <a href="https://www.speed-memory.com/" target="_blank">Based on https://www.speed-memory.com/</a>
         <br><br>
@@ -1413,22 +1405,7 @@ var socket = io("http://localhost:3000");
       <a href="#" onclick="$('.hide-autoplay').show()" style="zoom: 1.5;">show autoplay controls</a>
       <br><br><br>
       <div style="zoom:2">
-        <b>If you do not know anything about Speed-memory. You can go to:</b>
-        <br><br>
-        <a href="http://www.insanity-mind.com/train-speed-memory-championship/" target="_blank">http://www.insanity-mind.com/train-speed-memory-championship/</a>
-        <br>
-        <a href="http://www.insanity-mind.com/train-memory-championship-ii-figures-test/" target="_blank">http://www.insanity-mind.com/train-memory-championship-ii-figures-test/</a>
-        <br><br>
-        <b>Guia para empezar en Speed-Memory</b>
-        <br><br>
-        <a href="http://www.insanity-mind.com/insanitymind_es/como-entrenar-para-un-torneo-de-memoria-rapida-i/" target="_blank">http://www.insanity-mind.com/insanitymind_es/como-entrenar-para-un-torneo-de-memoria-rapida-i/</a>
-        <br>
-        <a href="http://www.insanity-mind.com/insanitymind_es/entrenar-para-un-campeonato-ii-figuras/" target="_blank">http://www.insanity-mind.com/insanitymind_es/entrenar-para-un-campeonato-ii-figuras/</a>
-        <br>
-        <a href="http://www.nuecesyneuronas.com/mi-casillero-mental/" target="_blank">http://www.nuecesyneuronas.com/mi-casillero-mental/</a>
-        <br>
-        <a href="https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html" target="_blank">https://diariopositivo2015.blogspot.com/2016/04/mis-imagenes-de-los-casilleros-mentales.html</a>
-        <br>
+         <br>
         <br>
         <a href="https://www.speed-memory.com/" target="_blank">Based on https://www.speed-memory.com/</a>
         <br><br>
@@ -1478,6 +1455,53 @@ var socket = io("http://localhost:3000");
 }
   </script>
 
+<script>
+setInterval(function () {
+  const divConfig = document.getElementById("div-configurar");
+  const controlesConfig = document.getElementById("control-configurar-div");
+  const controlFlechas = document.getElementById("control-config");
+
+  // Dejar el panel config en flujo normal, NO fixed
+  if (divConfig) {
+    divConfig.style.setProperty("position", "relative", "important");
+    divConfig.style.setProperty("left", "auto", "important");
+    divConfig.style.setProperty("right", "auto", "important");
+    divConfig.style.setProperty("bottom", "auto", "important");
+    divConfig.style.setProperty("top", "auto", "important");
+    divConfig.style.setProperty("width", "auto", "important");
+    divConfig.style.setProperty("height", "auto", "important");
+    divConfig.style.setProperty("max-height", "none", "important");
+    divConfig.style.setProperty("overflow", "visible", "important");
+    divConfig.style.setProperty("background", "transparent", "important");
+    divConfig.style.setProperty("z-index", "1", "important");
+    divConfig.style.setProperty("transform", "none", "important");
+  }
+
+  // Solo la barra de controles queda más arriba y visible
+  if (controlesConfig) {
+    controlesConfig.style.setProperty("position", "sticky", "important");
+    controlesConfig.style.setProperty("top", "470px", "important"); // más chico = más arriba
+    controlesConfig.style.setProperty("z-index", "999999", "important");
+    controlesConfig.style.setProperty("background", "white", "important");
+    controlesConfig.style.setProperty("padding", "6px", "important");
+    controlesConfig.style.setProperty("border", "1px solid #ccc", "important");
+    controlesConfig.style.setProperty("transform", "none", "important");
+  }
+
+  // Las flechas normales, no voladoras
+  if (controlFlechas) {
+    controlFlechas.style.setProperty("position", "static", "important");
+    controlFlechas.style.setProperty("top", "auto", "important");
+    controlFlechas.style.setProperty("bottom", "auto", "important");
+    controlFlechas.style.setProperty("transform", "none", "important");
+controlFlechas.style.setProperty("margin-left", "100px", "important");
+//controlFlechas.style.setProperty("margin-bottom", "20px", "important");
+
+controlFlechas.style.setProperty("zoom", "1.2", "important");
+
+  }
+}, 100);
+</script>
 
 
 
