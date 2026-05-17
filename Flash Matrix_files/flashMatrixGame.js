@@ -97,11 +97,6 @@ function jugarRapid(fase){
 	tam_x  = parseInt(arrayConfig[ccg].matrix[pasadas][0]);
 	tam_y = parseInt(arrayConfig[ccg].matrix[pasadas][1]);
 
-	// ----------------------------------------------------
-	// ACÁ SE GENERA LA MATRIZ REAL
-	// No imágenes, no jpg, no png, no sprites.
-	// ----------------------------------------------------
-
 	poner = `<table style="border-collapse: collapse; margin:auto;">`;
 
 	for(i=0;i<tam_y;i++){
@@ -134,7 +129,6 @@ function jugarRapid(fase){
 
 	poner += `</table>`;
 
-	// Guarda la respuesta como matriz real, no como imágenes.
 	ponerAnswer += `
 		<div style="display:inline-block; margin:10px; vertical-align:top;">
 			<center><b>${pasadas}</b></center>
@@ -191,9 +185,8 @@ function jugarRapid222(fase){
 			$("#go-txt").html("GO!");
 			etapa=0;
 			return;
-
-
 		}
+
 		etapa=1;
 		ponerAnswer="";
 
@@ -210,22 +203,11 @@ function jugarRapid222(fase){
 		cartasByFlash = 1;
 		
 		selectedItems = [];
-		/*
-		myArray = _.range(1,53);
-		myArray = _.shuffle(myArray);
-		*/
 
 		for(i=0;i<totalPasadas;i++){
 
 			selectedItems[i] = {};
 			
-			// if(i>48){
-			// 	selectedItems[i].mostrar = "1";
-			// 	selectedItems[i].txt = "A";
-			// 	selectedItems[i].color = "X";
-			// 	continue;
-
-			// }
 			tam_x = parseInt(arrayConfig[ccg].matrix[i][0]);
 			tam_y = parseInt(arrayConfig[ccg].matrix[i][1]);
 
@@ -236,74 +218,25 @@ function jugarRapid222(fase){
 				selectedItems[i].mostrar[j]=[];
 
 				for(k=0;k<tam_x;k++){
-					
 					selectedItems[i].mostrar[j][k]=_.random(0,1);		
 				}
 			}
-			/*
-			selectedItems[i].mostrar = myArray[i];
-
-			//var arrayColors=["♠","♥","♦","♣"];
-
-			if(myArray[i]<14){selectedItems[i].color = "♥"; }
-			if(myArray[i]>13 && myArray[i]<27 ){selectedItems[i].color = "♠"; }
-			if(myArray[i]>26 && myArray[i]<40 ){selectedItems[i].color = "♦"; }
-			if(myArray[i]>39){selectedItems[i].color = "♣"; }
-
-			if(myArray[i]<11)
-				selectedItems[i].txt = myArray[i];
-
-			if(myArray[i]>13 && myArray[i]<24)
-				selectedItems[i].txt = myArray[i]-13;
-
-			if(myArray[i]>26 && myArray[i]<37)
-				selectedItems[i].txt = myArray[i]-26;
-
-			if(myArray[i]>39 && myArray[i]<50)
-				selectedItems[i].txt = myArray[i]-39;
-
-			//A
-			if(myArray[i]==1 || myArray[i]==14 || myArray[i]==27 || myArray[i]==40) selectedItems[i].txt="A";
-			//j 11 24 37 50
-			if(myArray[i]==11 || myArray[i]==24 || myArray[i]==37 || myArray[i]==50) selectedItems[i].txt="J";
-			//q
-			if(myArray[i]==12 || myArray[i]==25 || myArray[i]==38 || myArray[i]==51) selectedItems[i].txt="Q";
-			//k
-			if(myArray[i]==13 || myArray[i]==26 || myArray[i]==39 || myArray[i]==52) selectedItems[i].txt="K";
-
-			if(i<totalPasadas){
-				//console.log(selectedItems[i].color + " " + selectedItems[i].txt);
-			}
-
-			//selectedItems[i].color = myArray[i];
-			//selectedItems[i].txt = myArray[i];
-			*/
-
 		}
 
 		if(noTime){
-			lastNoTimeArray=[]
+			lastNoTimeArray=[];
 		}
 		
-		fase=2; t_ini = Date.now();
-
+		fase=2; 
+		t_ini = Date.now();
 	}
 
-	
 	tiempoInicial = arrayConfig[ccg].times[pasadas];
-
-	//if(cartasByFlash==1){
 
 	tam_x  = parseInt(arrayConfig[ccg].matrix[pasadas][0]);
 	tam_y = parseInt(arrayConfig[ccg].matrix[pasadas][1]);
 
 	poner = `<table style="border-collapse: collapse;">`;
-
-	//console.log("tam_y:"+tam_y);
-	//console.log("tam_x:"+tam_x);
-
-
-
 
 	for(i=0;i<tam_y;i++){
 
@@ -317,8 +250,6 @@ function jugarRapid222(fase){
 			}
 
 			myBorderColor="black";
-			/*if(_.random(0,1))
-				myBorderColor="red";*/
 
 			poner += `<td style="border: 1px solid black; background-color: ${myColor}; border-color: ${myBorderColor};" width="25px">&nbsp;</td>`;
 
@@ -326,90 +257,49 @@ function jugarRapid222(fase){
 		poner += `</tr>`;
 	}
 
-
-	//console.log(selectedItems[pasadas].mostrar);
-
 	poner += `</table>`;
-
 
 	cantidad_imagenes=parseInt(tam_y/2);
 
-	//_system=n("system")
 	poner="";
 
-	console.log(tam_x)
+	console.log(tam_x);
 
 	for(i=0;i<cantidad_imagenes;i++){
 		if(tam_x==3){
-      //_r=matrixBin8Img(_.random(0,77));
-      //poner+=`<img src="Bin8/${_r}.jpg" width="64px" height="64px" title="${_r}"><br>`;
-      _r=_.random(0,99);
+			_r=_.random(0,99);
 
-      if(casillerosLoad){
-      	__x=parseInt(_r%10);
-       __y=parseInt(_r/10);
+			if(casillerosLoad){
+				__x=parseInt(_r%10);
+				__y=parseInt(_r/10);
 
-      	poner+=`<img src="img/img_trans.gif" style="width: 64px; height: 64px; background: url(img/casillerosFull.jpg) ${__x*64}px ${__y*64}px; zoom:1;"> <br>`;
+				poner+=`<img src="img/img_trans.gif" style="width: 64px; height: 64px; background: url(img/casillerosFull.jpg) ${__x*64}px ${__y*64}px; zoom:1;"> <br>`;
 
-      }else{
-      	poner+=`<img src="casilleros/${_r}.jpg" width="64px" height="64px" title="${_r}"><br>`;
+			}else{
+				poner+=`<img src="casilleros/${_r}.jpg" width="64px" height="64px" title="${_r}"><br>`;
+			}
+		}else{
+			_r=matrixBin8Img[_.random(0,255)];
 
-      }
-      
+			if(bin8Load){
+				_r=_.random(0,255);
+				__x=parseInt(_r%16);
+				__y=parseInt(_r/16);
 
-    }else{
-      _r=matrixBin8Img[_.random(0,255)];
-      if(bin8Load){
-       _r=_.random(0,255);
-       __x=parseInt(_r%16);
-       __y=parseInt(_r/16);
-      	poner+=`
-      		<img src="img/img_trans.gif" style="width: 64px; height: 63px; background: url(img/bin8Full.jpg) ${__x*64}px ${__y*64}px; zoom:1;"> 
-      	<br>`;
+				poner+=`
+					<img src="img/img_trans.gif" style="width: 64px; height: 63px; background: url(img/bin8Full.jpg) ${__x*64}px ${__y*64}px; zoom:1;"> 
+				<br>`;
 
-      }else{
-      	poner+=`<img src="Bin8/${_r}.jpg" width="64px" height="64px" title="${_r}"><br>`;
-
-      }
-      
-
-    }
+			}else{
+				poner+=`<img src="Bin8/${_r}.jpg" width="64px" height="64px" title="${_r}"><br>`;
+			}
+		}
 	}
-	
 
 	ponerAnswer+=`${pasadas+1}<br>${poner.split("<br>").join("&nbsp;")}<br>`;
 
-
-
-
-	//console.log(poner);
-
 	$("#screen").html(`<br><br><center><b>${pasadas+1}</b></center><br><center>${poner}</center>`);
 
-	//}
-	/*
-	if(cartasByFlash==2){
-		_p1=`<img src="cartas/${selectedItems[pasadas].mostrar}.png">`;
-		_p2="";
-		if(pasadas+1<totalPasadas)
-			_p2=`<img src="cartas/${selectedItems[pasadas+1].mostrar}.png">`;
-
-		$("#screen").html(`<br><br><center><b>${pasadas+1}</b></center><br><center><span>${_p1}</span>&nbsp;<span>${_p2}</span></center>`);
-	}
-	if(cartasByFlash==3){
-		_p1=`<img src="cartas/${selectedItems[pasadas].mostrar}.png">`;
-		_p2="";
-		if(pasadas+1<totalPasadas)
-			_p2=`<img src="cartas/${selectedItems[pasadas+1].mostrar}.png">`;
-		_p3="";
-		if(pasadas+2<totalPasadas)
-			_p3=`<img src="cartas/${selectedItems[pasadas+2].mostrar}.png">`;
-
-		$("#screen").html(`<br><br><center><b>${pasadas+1}</b></center><br><center><span>${_p1}</span>&nbsp;<span>${_p2}</span><span>${_p3}</span></center>`);
-	}
-	*/
-
-	
 	if(!noTime){
 		killTimeout = setTimeout(function(){
 			t_fin2 = Date.now();
@@ -418,15 +308,8 @@ function jugarRapid222(fase){
 
 			pasadas+=cartasByFlash;
 
-			//console.log(pasadas);
-			//console.log(totalPasadas);
-
 			if(pasadas>=totalPasadas){
-
-				//$("#screen").append("<br><br><center><input type=\"button\" value=\"Recall\" id=\"recall\"></center>");
-
 				recall1();
-
 				return;
 			}
 
@@ -434,11 +317,10 @@ function jugarRapid222(fase){
 			killTimeout1 = setTimeout(function(){ jugarRapid(2); }, arrayConfig[ccg]._blankTime[pasadas-1]);
 
 		}, tiempoInicial);
-	}else{ //noTime
+	}else{
 		nt_t_ini = Date.now();
 		bLastNoTime = 1;
 	}
-
 }
 
 tamano = 10;
@@ -447,348 +329,253 @@ var arrayColors=["♠","♥","♦","♣"];
 var arrayDirecciones=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
 
 function recall1(){
-	etapa=2;
+	etapa = 2;
+	recall = [];
+	t_fin = Date.now();
 
-  recall = []; t_fin = Date.now();
+	for (var i = 0; i < totalPasadas; i++) {
+		recall[i] = {};
+		recall[i].mostrar = [];
 
-  for (var i = 0; i < 120; i++) {
-  		recall[i]={};
-  		recall[i].mostrar=[];
+		tam_x = parseInt(arrayConfig[ccg].matrix[i][0]);
+		tam_y = parseInt(arrayConfig[ccg].matrix[i][1]);
 
-  		if(i>totalPasadas){
-  			tam_x=10;
-  			tam_y=10;
-
-
-  		}else{
-  			tam_x  = parseInt(arrayConfig[ccg].matrix[i][0]);
-			tam_y = parseInt(arrayConfig[ccg].matrix[i][1]);
-
-  		}
-  		
-  		for(j=0;j<tam_y;j++){
-
-  				recall[i].mostrar[j]=[];
-
-				
-
-				for(k=0;k<tam_x;k++){
-					
-					recall[i].mostrar[j][k]=0;
-					//selectedItems[i].mostrar[j][k]=_.random(0,1);		
-				}
+		for (var j = 0; j < tam_y; j++) {
+			recall[i].mostrar[j] = [];
+			for (var k = 0; k < tam_x; k++) {
+				recall[i].mostrar[j][k] = 0;
+			}
 		}
-  		//recall[i].txt="x";
-  };
+	}
 
-  //selectedItemsRnd = selectedItems.slice();
-  //selectedItemsRnd = selectedItemsRnd.sort(function() {return Math.random() - 0.5});
-  /*
-  poner2 = "<table border=\"0\">";
-  z=0;
-  for(i=0;i<tamano;i++){
-    recall[z] = "#FFFFFF";  
-    poner2 += "<tr>";
+	var columnasRecall = tamano;
+	if (typeof bMovil !== "undefined" && bMovil) {
+		columnasRecall = 1;
+	}
+	columnasRecall = Math.max(1, parseInt(columnasRecall || 1));
 
-		for(j=0;j<tamano;j++){
+	var poner = `
+		<div style="padding:10px; text-align:center;">
+			<input type="button" value="Answer corregir" id="answer1" style="font-size:18px; padding:10px; margin:5px;">
+			<input type="button" value="Answer rápido" id="answerQuick" style="font-size:18px; padding:10px; margin:5px;">
+			<div style="font-size:12px; opacity:.75; margin-top:4px;">
+				Answer corregir compara tu recall. Answer rápido solo muestra la solución.
+			</div>
+		</div>
+		<br>
+		<table border="0" style="margin:auto; border-collapse:collapse;">
+	`;
 
-			idRnd = selectedItemsRnd[z];
+	var z = 0;
 
-			//poner2 += "<td><div class=\"dropdown\"><a href=\"#\" class=\"dropbtn\" style=\"text-decoration: none;\"><div style=\"background-color: " + colores[idRnd][1] + "; width: 30px; height: 30px;  z-index: 90;\" onclick=\"contestar(fff,'" + colores[idRnd][1] + "');\" title=\"" + colores[idRnd][0] + "\">&nbsp;</div></a><div class=\"dropdown-content\" style=\"z-index: 100; display:none;\"></div></div></td>";
+	while (z < totalPasadas) {
+		poner += "<tr>";
 
+		for (var j = 0; j < columnasRecall; j++) {
+			if (z >= totalPasadas) {
+				poner += `<td>&nbsp;</td>`;
+				continue;
+			}
+
+			tam_x = parseInt(arrayConfig[ccg].matrix[z][0]);
+			tam_y = parseInt(arrayConfig[ccg].matrix[z][1]);
+
+			var grid = `<table style="border-collapse: collapse; margin:auto;">`;
+
+			for (var y = 0; y < tam_y; y++) {
+				grid += `<tr>`;
+
+				for (var x = 0; x < tam_x; x++) {
+					grid += `
+						<td id="td-${z}-${y}-${x}" style="
+							border: 1px solid black;
+							background-color: white;
+							width: 25px;
+							height: 25px;
+							min-width: 25px;
+							min-height: 25px;
+							padding: 0;
+							cursor: pointer;
+						" onclick="contestarDireccion(${x},${y},${z});">&nbsp;</td>
+					`;
+				}
+
+				grid += `</tr>`;
+			}
+
+			grid += `</table>`;
+
+			poner += `
+				<td style="padding: 10px; vertical-align:top;">
+					<center><b>${z}</b></center>
+					<br>
+					${grid}
+				</td>
+			`;
 
 			z++;
 		}
-		poner2 += "</tr>";
-  }
-  poner2 += "</table>";
-  */
 
-  /*
-  poner2=`<div>`;
+		poner += "</tr>";
+	}
 
-	for (var i = 0; i < arrayColors.length; i++) {
-		bgColor="black";
-		if(arrayColors[i]=="♥" || arrayColors[i]=="♦")
-			bgColor="red";
+	poner += "</table>";
 
-		poner2+=`<div class="respuesta-color-class-zzz" id="respuesta-color-id-zzz-${i}" style="color: ${bgColor}; width:20px; height:20px; float: left; border-style: solid; border-width: 2px; border-color: white;" onclick="contestarColor(zzz,'${arrayColors[i]}','${i}');">${arrayColors[i]}</div>`;
-	};
-	poner2+=`<br><div style="clear: both"></div>`;
-	for (var i = 0; i < arrayDirecciones.length; i++) {
-		poner2+=`<div class="respuesta-txt-class-zzz" id="respuesta-txt-id-zzz-${i}"  style="width: 20px; height:20px; float: left; border-style: solid; border-width: 2px;  border-color: white;" onclick="contestarDireccion(zzz,'${arrayDirecciones[i]}','${i}');">${arrayDirecciones[i]}</div>`;
-	};
+	$("#screen").html(poner);
+	$("html, body").animate({ scrollTop: $(document).height() }, 300);
 
-  poner2+= `<br></div>`;
-  */
-
-  poner2="";
-  poner = "<input type=\"button\" value=\"Answer\" id=\"answer1\">"; //; <br><br><table border=\"1\" style=\"border: 1px solid gray;  border-collapse: collapse;\">";
-
- //  z=0;
-	// for(i=0;i<62;i++){
-	// 	if(z>=totalPasadas){
-	// 		continue;
-	// 	}
-
-	// 	poner += "<tr>";
-
-	// 	if(bMovil){
-	// 		tamano=1;
-	// 	}
-
-	// 	for(j=0;j<tamano;j++){
-
-	// 		poner3 = poner2;
-	// 		poner3 = poner3.replace(/zzz/g,z);
-	// 		//console.log(poner3);
-
-	// 		if(modoJuego==1){
-	// 			poner += `<td><center>${z+1}</center>  <br></td>`;
-
-
-	// 		}else{
-	// 			if(z>=totalPasadas){
-	// 				poner += `<td>&nbsp;</td>`;
-
-	// 			}else{
-	// 				//aqui el flash
-
-	// 				tam_x  = parseInt(arrayConfig[ccg].matrix[z][0]);
-	// 				tam_y = parseInt(arrayConfig[ccg].matrix[z][1]);
-
-	// 				_poner = `<table style="border-collapse: collapse;">`;
-
-	// 				//console.log("tam_y:"+tam_y);
-	// 				//console.log("tam_x:"+tam_x);
-
-	// 				for(k=0;k<tam_y;k++){
-
-	// 					_poner += `<tr>`;
-
-	// 					for(l=0;l<tam_x;l++){
-
-	// 						myColor="white";
-							
-
-	// 						_poner += `<td id="td-${z}-${k}-${l}" style="border: 1px solid black; background-color: ${myColor}" width="25px" onclick="contestarDireccion(${l},${k},${z});">&nbsp;</td>`;
-
-	// 					}
-	// 					_poner += `</tr>`;
-	// 				}
-
-	// 				//console.log(selectedItems[pasadas].mostrar);
-
-	// 				_poner += `</table>`;
-
-	// 				poner += `<td style="padding: 10px;"><center>${z+1}</center> <br> ${_poner} </td>`;
-	// 			}//total pasadas
-	// 		}//modoJuego==1
-	// 		z++;
-	// 	}
-	// 	poner += "</tr>";
-	// }
-	// poner += "</table>";
-  
- //  //$("#screen").html(poner);
-  $("#screen").html(poner);
-  //$("#screen").append("<br><input type=\"button\" value=\"Answer\" id=\"answer\">");
-  $("html, body").animate({ scrollTop: $(document).height() }, 1000);
-
-  $("#answer").click(answer);
-  $("#answer1").click(answer);
+	$("#answer").off("click").on("click", answer);
+	$("#answer1").off("click").on("click", answer);
+	$("#answerQuick").off("click").on("click", answerQuick);
 }
 
 correctas = 0;
-arrayCorrectas=[];
+arrayCorrectas = [];
 
 totalCuadros = 0;
+
+function answerQuick(){
+	etapa = 0;
+	location.href = "#top";
+
+	bStart = 0;
+	$("#start-btn").val("start");
+	$("#go-txt").html("GO!");
+
+	$("#screen").html(`<br><br><center>${ponerAnswer}</center>`);
+}
 
 function answer(){
 	etapa = 0;
 	totalCuadros = 0;
+	correctas = 0;
 
 	location.href = "#top";
 
-	$("#screen").html(`<br><br><center>${ponerAnswer}</center>`);
+	var columnasResultado = tamano;
+	if (typeof bMovil !== "undefined" && bMovil) {
+		columnasResultado = 1;
+	}
+	columnasResultado = Math.max(1, parseInt(columnasResultado || 1));
 
-	return;
+	var poner = "<div id=\"stats\"></div><br><br><table border=\"0\" style=\"margin:auto; border-collapse:collapse;\">";
 
-  z=0; correctas=0;
-  poner = "<div id=\"stats\"></div><br><br><table border=\"0\">";
+	var z = 0;
 
-
-  /*
-  arrayCorrectas=[];
-
-  for(i=0;i<totalPasadas;i++){
-  		tam_x  = parseInt(arrayConfig[ccg].matrix[i][0]);
-		tam_y = parseInt(arrayConfig[ccg].matrix[i][1]);
-
-		for(j=0;j<tam_)
-
-
-  }*/
-
-	for(i=0;i<62;i++){
-
-		if(z>=totalPasadas){
-			continue;
-		}
-	 
+	while (z < totalPasadas) {
 		poner += "<tr>";
 
-		if(bMovil){
-			tamano=1;
+		for (var j = 0; j < columnasResultado; j++) {
+			if (z >= totalPasadas) {
+				poner += `<td>&nbsp;</td>`;
+				continue;
+			}
+
+			tam_x = parseInt(arrayConfig[ccg].matrix[z][0]);
+			tam_y = parseInt(arrayConfig[ccg].matrix[z][1]);
+
+			var tieneError = 0;
+			var matrizOriginal = `<table style="border-collapse: collapse; margin:auto;">`;
+			var matrizRecall = `<table style="border-collapse: collapse; margin:auto;">`;
+
+			for (var y = 0; y < tam_y; y++) {
+				matrizOriginal += `<tr>`;
+				matrizRecall += `<tr>`;
+
+				for (var x = 0; x < tam_x; x++) {
+					var originalBit = selectedItems[z].mostrar[y][x] ? 1 : 0;
+					var recallBit = recall[z].mostrar[y][x] ? 1 : 0;
+					var borderColor = "black";
+
+					if (originalBit === recallBit) {
+						correctas++;
+					} else {
+						borderColor = "red";
+						tieneError = 1;
+					}
+
+					var colorOriginal = originalBit ? "blue" : "white";
+					var colorRecall = recallBit ? "blue" : "white";
+
+					matrizOriginal += `
+						<td style="
+							border: 1px solid ${borderColor};
+							background-color: ${colorOriginal};
+							width: 25px;
+							height: 25px;
+							min-width: 25px;
+							min-height: 25px;
+							padding: 0;
+						">&nbsp;</td>
+					`;
+
+					matrizRecall += `
+						<td style="
+							border: 1px solid ${borderColor};
+							background-color: ${colorRecall};
+							width: 25px;
+							height: 25px;
+							min-width: 25px;
+							min-height: 25px;
+							padding: 0;
+						">&nbsp;</td>
+					`;
+
+					totalCuadros++;
+				}
+
+				matrizOriginal += `</tr>`;
+				matrizRecall += `</tr>`;
+			}
+
+			matrizOriginal += `</table>`;
+			matrizRecall += `</table>`;
+
+			var bordeCaja = tieneError ? "red" : "green";
+
+			poner += `
+				<td style="padding: 10px; vertical-align:top;">
+					<center><b>${z}</b></center>
+					<div style="padding: 10px; border: 2px solid ${bordeCaja}; display:inline-block;">
+						<div style="font-size:12px; text-align:center;">original</div>
+						${matrizOriginal}
+						<br>
+						<div style="font-size:12px; text-align:center;">tu recall</div>
+						${matrizRecall}
+					</div>
+				</td>
+			`;
+
+			z++;
 		}
 
-		for(j=0;j<tamano;j++){
-
-			border = "";
-			//idSelectedItem = selectedItems[z];
-
-			border = " border: 1px solid green;";
-			//if(selectedItems[z].color!=recall[z].color || selectedItems[z].txt!=recall[z].txt){ // error
-	
-			border = " border: 1px solid red;";
-
-			if(modoJuego==1){
-				poner += "<td>" +
-			      "<div style=\"width 32px; height: 30px !important; " + border + "\">" +
-			        "<div style=\"color: #" + selectedItems[z].color + "; width: 20px; height: 40px;  float: left; font-size: 20px;\">" + selectedItems[z].txt + "</div>" + 
-			        "<div style=\"color: #" + recall[z].color + "; width: 20px; height: 40px; float: left; font-size: 20px;\">" + recall[z].txt + "</div>" +
-			      "</div>" + 
-			    "</td>";
-
-
-			}else{
-					//aca va el flash
-					if(z>=totalPasadas){
-						poner += `<td>&nbsp;</td>`;
-
-					}else{
-
-						tam_x  = parseInt(arrayConfig[ccg].matrix[z][0]);
-						tam_y = parseInt(arrayConfig[ccg].matrix[z][1]);
-
-						border = "green";
-						_bError= 0;
-
-						_poner = `<table style="border-collapse: collapse;">`;
-						__poner = `<table style="border-collapse: collapse;">`;
-
-						console.log(z+1);
-						//console.log("tam_y:"+tam_y);
-						//console.log("tam_x:"+tam_x);
-
-						for(k=0;k<tam_y;k++){
-
-							_poner += `<tr>`;
-
-							for(l=0;l<tam_x;l++){
-
-								myBorderColor="black";
-
-								if(Boolean(recall[z].mostrar[k][l])!=Boolean(selectedItems[z].mostrar[k][l])){
-									//myBorderColor="red";
-									border="red";
-									_bError = 1;
-									console.log(recall[z].mostrar[k][l]+"-"+selectedItems[z].mostrar[k][l])
-								}
-
-								myColor="white";
-								if(selectedItems[z].mostrar[k][l]==1)
-									myColor="blue";		
-
-								_myColor="white";
-								if(recall[z].mostrar[k][l]==1)
-									_myColor="blue";							
-
-								_poner += `<td id="td-${z}-${k}-${l}" style="border: 1px solid black; background-color: ${myColor}; border-color: ${myBorderColor};" width="25px">&nbsp;</td>`;
-								__poner += `<td id="td-${z}-${k}-${l}" style="border: 1px solid black; background-color: ${_myColor}; border-color: ${myBorderColor};" width="25px">&nbsp;</td>`;
-
-								totalCuadros++;
-							}
-							_poner += `</tr>`;
-							__poner += `</tr>`;
-			
-						}
-
-						if(!_bError){
-							correctas+=(tam_y*tam_x);
-						}
-
-						//console.log(selectedItems[pasadas].mostrar);
-
-						_poner += `</table>`;
-						__poner += `</table>`;
-
-
-						/*
-						bgColor="black";
-						if(selectedItems[z].color=="♥" || selectedItems[z].color=="♦")
-							bgColor="red";
-
-						bgColor1="black";
-						if(recall[z].color=="♥" || recall[z].color=="♦")
-							bgColor1="red";
-						*/
-
-						poner += "<td>" +
-							 "<center>hola" + (z-1) + "</center><br>" +	
-					      "<div style=\"padding: 10px; border: 1px solid " + border + ";\">" +
-					      	_poner + "<br>" + 
-					      	__poner +
-					       "</div>" + 
-					    "</td>";
-
-					}
-			}
-			
-			z++;
-		}//for j
 		poner += "</tr>";
-	}//for i
+	}
+
 	poner += "</table>";
 
-	bStart=0;
+	bStart = 0;
 	$("#start-btn").val("start");
 	$("#go-txt").html("GO!");
 
-	myDate =  new Date();
-	month = myDate.getMonth(); fullYear = myDate.getFullYear(); day = myDate.getDay(); date = myDate.getDate(); year = myDate.getYear();
-	ponerFecha = (month+1) + "/" + date + "/" + fullYear + "<br>";
+	myDate = new Date();
+	month = myDate.getMonth();
+	fullYear = myDate.getFullYear();
+	date = myDate.getDate();
+	ponerFecha = (month + 1) + "/" + date + "/" + fullYear + "<br>";
 
-	if(modoJuego==1){
+	var porcent = totalCuadros ? (correctas * 100 / totalCuadros) : 0;
+	var t_dif = t_fin2 - t_ini;
 
-		tt = (parseInt(tamano)*parseInt(tamano));
-		porcent = correctas * 100 / tt; 
+	$("#screen").html(poner);
 
-		t_dif = t_fin - t_ini;
-
-		$("#screen").html(poner);
-		$("#screen").append("<br><br><div style=\"background-color: #3fad46; color:white; width 500px;\">You got " + correctas + " out of " + tt + " attempted! (" + porcent.toFixed(2)  + "% accuracy) in " + getDuration(t_dif) + ", " + ponerFecha +  "</div>");
-		// $("#screen").append("<br><input type=\"button\" value=\"Agregar al Ranking\" id=\"addRank\">");
-
-	}else{
-
-		//va el flash
-
-		tt = (parseInt(tamano)*parseInt(tamano));
-		porcent = correctas * 100 / totalCuadros 
-
-		t_dif = t_fin2 - t_ini;
-
-		$("#screen").html(poner);
-
-		//$("#screen").append("<br><br><div style=\"background-color: #3fad46; color:white; width 500px;\">You got " + correctas + " out of " + totalPasadas + " attempted! (" + porcent.toFixed(2)  + "% accuracy) in " + getDuration(t_dif) + ", " + ponerFecha +  "</div>");
-		
-		$("#stats").append("<br><br><div style=\"background-color: #3fad46; color:white; width 500px;\">You got " + correctas + " out of " + totalCuadros + " attempted! (" + porcent.toFixed(2)  + "% accuracy) in " + getDuration(t_dif) + ", " + ponerFecha +  "</div>");
-		// $("#screen").append("<br><input type=\"button\" value=\"Agregar al Ranking\" id=\"addRank\">");
-
-	}
+	$("#stats").append(`
+		<br><br>
+		<div style="background-color:#3fad46; color:white; width:500px; max-width:95%; padding:10px; margin:auto;">
+			You got ${correctas} out of ${totalCuadros} attempted! (${porcent.toFixed(2)}% accuracy) in ${getDuration(t_dif)}, ${ponerFecha}
+		</div>
+	`);
 }
-
 
 function contestarDireccion(x,y,z){
 
@@ -799,23 +586,6 @@ function contestarDireccion(x,y,z){
 		myColor = "blue";
 
 	$("#td-"+z+"-"+y+"-"+x).css("background-color",myColor);
-
-
-	/*
-
-	if(recall[x].txt==y){
-		$(".respuesta-txt-class-"+x).css("border-color","white");
-		recall[x].txt="x";
-		return;
-	}
-
-  //console.log(x + " = " + y);
-  //$("#respuesta"+x).css("background-color",y);
-  $(".respuesta-txt-class-"+x).css("border-color","white");
-
-  $("#respuesta-txt-id-"+x+"-"+z).css("border-color","black");
-  recall[x].txt=y;
-  */
 }
 
 function contestarColor(x,y,z){
@@ -825,13 +595,10 @@ function contestarColor(x,y,z){
 		return;
 	}
 
-  //console.log(x + " = " + y);
-  $(".respuesta-color-class-"+x).css("border-color","white");
+	$(".respuesta-color-class-"+x).css("border-color","white");
 
-  $("#respuesta-color-id-"+x+"-"+z).css("border-color","black");
-  //$("#respuesta"+x).css("background-color",y);
-  recall[x].color=y;
-  
+	$("#respuesta-color-id-"+x+"-"+z).css("border-color","black");
+	recall[x].color=y;
 }
 
 $(document).keydown(function(event) {
@@ -849,10 +616,8 @@ $(document).keydown(function(event) {
 			jugarRapid(1);
 
 			return;
-
 		}
 
-		//nextCard
 		if(etapa==1 && noTime){
 			nt_t_fin =  Date.now();
 			lastNoTimeArray[pasadas] = parseInt(nt_t_fin - nt_t_ini);
@@ -861,46 +626,32 @@ $(document).keydown(function(event) {
 
 			$("#screen").html("");
 
-			
-
 			pasadas+=cartasByFlash;
 
 			if(pasadas>=totalPasadas){
-
-				//$("#screen").append("<br><br><center><input type=\"button\" value=\"Recall\" id=\"recall\"></center>");
-
 				recall1();
-
 				return;
 			}
 
-
 			jugarRapid(2);
-
-
-		}//etapa==1
-
-		
-	}//event
+		}
+	}
 });
 
 function next(){
 	if(etapa==0){
 
-			noTime=1;
-			$("#noTime").prop( "checked", true );
+		noTime=1;
+		$("#noTime").prop( "checked", true );
 
-			$("#next-btn").css("width","50%");
-			$("#go-btn").css("width","50%");
+		$("#next-btn").css("width","50%");
+		$("#go-btn").css("width","50%");
 
-			jugarRapid(1);
+		jugarRapid(1);
 
-			return;
-
+		return;
 	}
 
-
-	//next
 	if(etapa==1 && noTime){
 		nt_t_fin =  Date.now();
 		lastNoTimeArray[pasadas] = parseInt(nt_t_fin - nt_t_ini);
@@ -912,18 +663,12 @@ function next(){
 		pasadas+=cartasByFlash;
 
 		if(pasadas>=totalPasadas){
-
-			//$("#screen").append("<br><br><center><input type=\"button\" value=\"Recall\" id=\"recall\"></center>");
-
 			recall1();
-
 			return;
 		}
 
 		jugarRapid(2);
-
 	}
-
 }
 
 var getDuration = function(millis){
@@ -935,12 +680,13 @@ var getDuration = function(millis){
 	    {label:"hours",     mod:24},
 	    {label:"days",      mod:31}
 	];
-	// calculate the individual unit values...
+
 	units.forEach(function(u){
 	    millis = (millis - (dur[u.label] = (millis % u.mod))) / u.mod;
 	});
-	// convert object to a string representation...
+
 	var nonZero = function(u){ return dur[u.label]; };
+
 	dur.toString = function(){
 	    return units
 	        .reverse()
@@ -950,5 +696,6 @@ var getDuration = function(millis){
 	        })
 	        .join(', ');
 	};
+
 	return dur;
 };
