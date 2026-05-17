@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://localhost/f/matrix.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>Flash Matrix</title>
+
+  <link rel="icon" href="http://localhost/f/img/logo-flash.png">
+
+
+  <meta name="description" content="Flash Matrix">
+  <meta name="keywords" content="mental training, matrix game, memory game">
+
+  <!-- Latest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
+  <!-- Optional theme -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+
+
+  <!--
+  	<script src="js/jquery.min.js"></script> 
+	<script src="js/underscore-min.js"></script>
+  -->
+   <script async="" src="./Flash Matrix_files/analytics.js"></script><script src="./Flash Matrix_files/jquery.min.js"></script>
+  <script src="./Flash Matrix_files/underscore-min.js"></script>
+  <!-- <script src="js/html2canvas.min.js"></script>-->
+	
+  <style type="text/css">
+  
+#bottom-content {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      width: 100%;
+      border-top: 0.5px solid;
+      border-bottom: 0.5px solid;
+      vertical-align: middle;
+    }
+    .btn:focus {
+      outline: none;
+    }
+    table.no-spacing {
+   
+
+     border-collapse: collapse;
+      border-spacing: 0;
+    }
+    td {
+    padding:0px;
+      }
+      td img {
+          display:block;
+      }
+    table td, 
+    table th
+    {
+    padding: 0; /* 'cellpadding' equivalent */
+    }
+    
+  </style>
+   <script>
+   
+   setTimeout(function () {
+  //alert("loci");
+}, 3 * 60 * 1000);
+      
+
+    </script>
+
+</head>
+<body>
+
+<div id="controls-div" style="display: block;">
+<a name="top">
+</a><a href="http://localhost/router?page=f" onclick="/*location.reload();*/" style="text-decoration:none;">F</a>
+<span id="menu-modules"></span>
+<select class="btn" id="game"><option value="0">Default</option></select>
+<input class="btn" type="button" value="start" onclick="jugarRapid(1);" onmousedown="preventFocus()" id="start-btn">
+<input type="button" value="Manage configurations" onclick="config();" id="cfg-btn">
+<span id="noTime-span">noTime</span><input type="checkbox" id="noTime" onclick="noTime=!noTime; nttt();">&nbsp;
+<a href="http://localhost/f/matrix.php#" onclick="bHelp=!bHelp; bHelp?$(&#39;#screen&#39;).html(&#39;&lt;br&gt;Flash Matrix!&lt;br&gt;Max number of matrix is 48 not 52!&lt;br&gt;Manage Configurations: change number of Matrix, matrix size, flash delays, etc&lt;br&gt;&lt;br&gt;Key space: Start flash!&lt;br&gt;Key right: next Matrix or set noTime and start&lt;br&gt;Key d: restore defaults.&lt;br&gt;&lt;br&gt;NoTime (nt): The Matrix do not flash automatically&lt;br&gt;&lt;br&gt;contact: robertchalean@gmail.com&#39;):$(&#39;#screen&#39;).html(&#39;&#39;);"><img src="./Flash Matrix_files/help.png"></a>
+
+</div>
+<br>
+<div id="screen" style="margin-top: 10px;"></div>
+<br>
+<div id="preload" style="display: none;"><img src="./Flash Matrix_files/casillerosFull.jpg" class="casillerosLoad"><img src="./Flash Matrix_files/bin8Full.jpg" class="bin8Load"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="bottom-content" style="/*display: none;*/bottom:40px;">
+  <div style="width:100%; float:left;" id="go-btn" onclick="jugarRapid(1);"><center style="margin-bottom: 10px; font-size: 65px;"><b id="go-txt">GO!</b></center></div>
+  <div style="width: 0px; float:left;" id="next-btn" onclick="next();"><center style="margin-bottom: 10px; font-size: 65px;"><b>Next</b></center></div>
+</div>
+
+<script type="text/javascript">
+function preventFocus() {
+
+    setTimeout(function() { $("#game").focus() }, 1);
+}
+
+bHelp=0;
+
+$("#screen").html("Loading...");
+
+zPreload=0;
+
+$("#controls-div").hide(); 
+
+
+function preload(arrayOfImages) {
+  
+    /*
+    $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
+        $('<img/>').ready(function(){ 
+          //console.log(imgLoadedCount);         
+          imgLoadedCount++; 
+          if(imgLoadedCount>78){ $("#screen").html(""); }
+        });
+        // Alternatively you could use:
+        // (new Image()).src = this;
+    });
+*/
+
+/*
+    for(i=0;i<arrayImages.length;i++){
+
+      //console.log(`<img src="${arrayImages[i]}" id="imgPreload-${zPreload}">`);
+
+       $("#preload").append(`<img src="${arrayImages[i]}" id="imgPreload-${zPreload}"  width="32" height="32">`);
+
+       $(`#imgPreload-${zPreload}`).on("load",function(){
+
+          imgLoadedCount++; 
+          if(imgLoadedCount>79){ */
+            $("#screen").html(""); 
+            $("#preload").hide(); 
+            $("#controls-div").show();
+
+/*
+         }
+       });
+
+       zPreload++;
+    }*/
+} 
+
+
+arrayImages=[];
+imgLoadedCount=0;
+
+for(i=0;i<52;i++){
+  arrayImages[i]="cartas/"+(i+1)+".png";
+} 
+
+preload();
+
+//$("<img>").on('load', function() { imgLoadedCount++; console.log(imgLoadedCount); if(imgLoadedCount>50){ $("#screen").html(""); } });
+
+winWidth =  $(window).width();
+
+bMovil = 0;
+
+if(winWidth<1000){
+  //alert("The App was designed to use in Desktop Pc. It can have speed issues.\n La App fue pensada para usar en Pc de Escritorio. En celulares puede tener problemas de velocidad");
+  $(":button").css("zoom","1.25");
+  $("#game").css("zoom","1.25");
+  //$("#screen").css("zoom","1.3");
+
+  $("#screen").css("margin-top","-20px");
+
+  $("#myTitle").hide();
+  $(".fb-share-button").hide();
+
+  //$("#screen").css("zoom","1.3");
+
+  $("#cfg-btn").val("cfg");
+  $("#noTime-span").html("nt");
+
+  bMovil = 1;
+
+}else{
+  //$("#screen").css("zoom","1.3");
+
+  $("#bottom-content").hide();
+}
+
+
+</script>
+
+<script type="text/javascript">
+
+function dec2bin(dec){
+    return (dec >>> 0).toString(2);
+}
+
+if (window.location.href.substr(-2) !== '?r') {
+  //location.reload();
+
+  //window.location.href = window.location.href + '?r';
+  //alert(window.location);
+}
+
+$("#preload").append(`<img src="img/casillerosFull.jpg" class="casillerosLoad">`);
+$("#preload").append(`<img src="img/bin8Full.jpg" class="bin8Load">`);
+
+casillerosLoad=0;
+bin8Load=0;
+
+$('img.casillerosLoad').on('load',function(){ console.log("casillerosLoad"); casillerosLoad=1; });
+$('img.bin8Load').on('load',function(){ console.log("bin8Load"); bin8Load=1; });
+
+
+poner=`<table class="no-spacing"  cellspacing="0">`;
+x=0;
+for(i=0;i<10;i++){
+  poner+=`<tr>`;
+  for(j=0;j<10;j++){
+    poner+=`<td><img src="casilleros/${x}.jpg" width="64" height="64"></td>`
+    x++;
+
+  }
+  poner+=`</tr>`;
+
+  
+
+  //ext="jpg"; if(i==77 || i==94 || i==87) ext="png";
+
+  //$("#preload").append(`<img src="casilleros/${i}.jpg">`);
+
+}  
+
+poner+="</table>";
+
+//$("#preload").append(poner)
+
+// setTimeout(function(){
+//   html2canvas(document.querySelector("#preload")).then(canvas => {
+//     document.body.appendChild(canvas)
+//   });
+
+// },2000)
+
+matrixBin8Img=[];
+for(i=0;i<256;i++){
+
+  a=dec2bin(i);
+
+  b="";
+  for(j=a.length;j<8;j++){
+
+    b+="0";
+  }
+  a=b+a;
+  matrixBin8Img[i]=a;
+
+  //$("#preload").append(`<img src="bin8/${a}.jpg">`);
+
+
+}   
+
+
+poner=`<br><table class="no-spacing"  cellspacing="0">`;
+x=0;
+for(i=0;i<16;i++){
+  poner+=`<tr>`;
+  for(j=0;j<16;j++){
+    poner+=`<td><img src="Bin8/${matrixBin8Img[x]}.jpg" width="64" height="64"></td>`
+    x++;
+
+  }
+  poner+=`</tr>`;
+
+  
+
+  //ext="jpg"; if(i==77 || i==94 || i==87) ext="png";
+
+  //$("#preload").append(`<img src="casilleros/${i}.jpg">`);
+
+}  
+
+poner+="</table>";
+
+//$("#preload").append(poner)
+
+console.log(dec2bin(2));
+
+
+
+</script>
+
+
+<script src="./Flash Matrix_files/flashMatrixConfig.js"></script>
+<script src="./Flash Matrix_files/flashMatrixGame.js"></script>
+<script src="./Flash Matrix_files/controller.js"></script>
+
+</body></html>
